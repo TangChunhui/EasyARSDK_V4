@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'EasyARSDK_V4'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of EasyARSDK_V4.'
+  s.summary          = 'easyar sdk'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,22 +21,18 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/HZKaiyu/EasyARSDK_V4'
+  s.homepage         = 'https://github.com/TangChunhui/EasyARSDK_V4'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'HZKaiyu' => '1203720671@qq.com' }
-  s.source           = { :git => 'https://github.com/HZKaiyu/EasyARSDK_V4.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'TangChunhui' => '1203720671@qq.com' }
+  s.source           = { :git => 'https://github.com/TangChunhui/EasyARSDK_V4.git', :tag => s.version.to_s }
 
+  s.platform         = :ios
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'EasyARSDK_V4/Classes/**/*'
+  s.frameworks = "Accelerate", "GLKit", "AVFoundation", "CoreGraphics", "CoreImage", "CoreMedia", "CoreVideo", "OpenGLES", "QuartzCore", "UIKit", "CoreMotion", "ARKit"
+  s.vendored_frameworks = 'Sources/easyar.framework'
+  s.libraries = 'c++'
+  s.requires_arc = true
   
-  # s.resource_bundles = {
-  #   'EasyARSDK_V4' => ['EasyARSDK_V4/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

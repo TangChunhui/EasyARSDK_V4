@@ -1,6 +1,0 @@
-use_frameworks!
-target 'EasyARSDK_V4_Tests' do
-  pod 'EasyARSDK_V4', :path => '../'
-  
-  
-end
