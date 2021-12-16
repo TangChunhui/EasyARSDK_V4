@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EasyARSDK_V4'
-  s.version          = '0.1.1'
+  s.version          = '0.1.2'
   s.summary          = 'easyar sdk'
 
 # This description is used to generate tags and improve search results.
@@ -31,7 +31,7 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '9.0'
 
   s.frameworks = "Accelerate", "GLKit", "AVFoundation", "CoreGraphics", "CoreImage", "CoreMedia", "CoreVideo", "OpenGLES", "QuartzCore", "UIKit", "CoreMotion", "ARKit"
-  s.vendored_frameworks = 'Sources/easyar.framework'
+  s.vendored_frameworks = 'Sources/easyar.xcframework'
   s.libraries = 'c++'
   s.requires_arc = true
   
