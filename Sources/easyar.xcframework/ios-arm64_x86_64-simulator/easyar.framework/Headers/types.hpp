@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.4.0.9304-eb4ecde40
-// Copyright (c) 2015-2021 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.5.0.9653-15c04a97e
+// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -367,7 +367,7 @@ class SurfaceTracker;
 enum class MotionTrackerCameraDeviceQualityLevel
 {
     /// <summary>
-    /// The device does not support motion tracking. It has not our passed our verification or is waiting for calibration.
+    /// The device does not support motion tracking. It has failed in calibration or is to be calibrated.
     /// </summary>
     NotSupported = 0,
     /// <summary>
@@ -431,7 +431,7 @@ enum class MotionTrackerCameraDeviceTrackingMode
     /// </summary>
     SLAM = 1,
     /// <summary>
-    /// Anchor is SLAM(Simultaneous tracking and mapping) with real time pose correction.  CPU and memory usage are highest。Anchor supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
+    /// Anchor is SLAM(Simultaneous tracking and mapping) with real time pose correction. CPU and memory usage are highest。Anchor supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
     /// </summary>
     Anchor = 2,
 };
@@ -653,6 +653,16 @@ class SparseSpatialMapConfig;
 class SparseSpatialMap;
 
 class SparseSpatialMapManager;
+
+enum class EngineOperatingSystem
+{
+    Windows = 0,
+    Linux = 1,
+    MacOS = 2,
+    iOS = 3,
+    Android = 4,
+    WinRT = 5,
+};
 
 class Engine;
 
@@ -1156,7 +1166,7 @@ public:
     static std::shared_ptr<CalibrationDownloader> from_cdata(std::shared_ptr<easyar_CalibrationDownloader> cdata);
 
     CalibrationDownloader();
-    void download(std::shared_ptr<CallbackScheduler> callbackScheduler, std::function<void(CalibrationDownloadStatus, std::optional<std::string>)> onCompleted);
+    void download(std::optional<int> timeoutMilliseconds, std::shared_ptr<CallbackScheduler> callbackScheduler, std::function<void(CalibrationDownloadStatus, std::optional<std::string>)> onCompleted);
 };
 
 class CloudLocalizeResult : public FrameFilterResult
@@ -1277,7 +1287,7 @@ public:
     /// acceleration is optional which is the readings from device accelerometer.
     /// location is optional which is the readings from device location manager.
     /// </summary>
-    void resolve(std::shared_ptr<InputFrame> inputFrame, std::string message, std::optional<Vec3F> acceleration, std::optional<Vec3D> location, std::shared_ptr<CallbackScheduler> callbackScheduler, std::function<void(std::shared_ptr<CloudLocalizeResult>)> callback);
+    void resolve(std::shared_ptr<InputFrame> inputFrame, std::string message, std::optional<Vec3F> acceleration, std::optional<Vec3D> location, std::optional<int> timeoutMilliseconds, std::shared_ptr<CallbackScheduler> callbackScheduler, std::function<void(std::shared_ptr<CloudLocalizeResult>)> callback);
     /// <summary>
     /// Stops the localization and closes connection. The component shall not be used after calling close.
     /// </summary>
@@ -1344,7 +1354,7 @@ public:
     /// <summary>
     /// Send recognition request. The lowest available request interval is 300ms.
     /// </summary>
-    void resolve(std::shared_ptr<InputFrame> inputFrame, std::shared_ptr<CallbackScheduler> callbackScheduler, std::function<void(std::shared_ptr<CloudRecognizationResult>)> callback);
+    void resolve(std::shared_ptr<InputFrame> inputFrame, std::optional<int> timeoutMilliseconds, std::shared_ptr<CallbackScheduler> callbackScheduler, std::function<void(std::shared_ptr<CloudRecognizationResult>)> callback);
     /// <summary>
     /// Stops the recognition and closes connection. The component shall not be used after calling close.
     /// </summary>
@@ -1644,6 +1654,15 @@ public:
     /// Returns image height.
     /// </summary>
     int height();
+    /// <summary>
+    /// Returns image pixel width for encoding.
+    /// </summary>
+    int pixelWidth();
+    /// <summary>
+    /// Returns image pixel height for encoding.
+    /// </summary>
+    int pixelHeight();
+    static std::shared_ptr<Image> create(std::shared_ptr<Buffer> buffer, PixelFormat format, int width, int height, int pixelWidth, int pixelHeight);
 };
 
 /// <summary>
@@ -2377,7 +2396,7 @@ public:
     /// </summary>
     MotionTrackerCameraDevice();
     /// <summary>
-    /// Check if the devices supports motion tracking. Returns True if the device supports Motion Tracking, otherwise returns False.
+    /// Check if the devices supports motion tracking. It returns True if the device supports Motion Tracking, otherwise it returns False.
     /// </summary>
     static bool isAvailable();
     /// <summary>
@@ -2385,19 +2404,19 @@ public:
     /// </summary>
     static MotionTrackerCameraDeviceQualityLevel getQualityLevel();
     /// <summary>
-    /// Sets current index of frame rate. Call before start. If this function is not called, the default is 30 fps.
+    /// Sets current frame rate. Call before start. If this function is not called, the default is 30 fps.
     /// </summary>
     bool setFrameRateType(MotionTrackerCameraDeviceFPS fps);
     /// <summary>
-    /// Sets focus mode to focusMode. Call before start. If this function is not called, the default is Continousauto.
+    /// Sets focus mode. Call before start. If this function is not called, the default is Continousauto.
     /// </summary>
     bool setFocusMode(MotionTrackerCameraDeviceFocusMode focusMode);
     /// <summary>
-    /// Sets current index of frame resolution. Call before start. If this function is not called, the default is 1280 x 960 or 1280 x 720.
+    /// Sets frame resolution. Call before start. If this function is not called, the default is 1280 x 960 or 1280 x 720.
     /// </summary>
     bool setFrameResolutionType(MotionTrackerCameraDeviceResolution resolution);
     /// <summary>
-    /// Sets current tracking mode. Call before start. If this function is not called, the default is Anchor.
+    /// Sets tracking mode. Call before start. If this function is not called, the default is Anchor.
     /// </summary>
     bool setTrackingMode(MotionTrackerCameraDeviceTrackingMode trackingMode);
     /// <summary>
@@ -2956,7 +2975,7 @@ public:
 
 /// <summary>
 /// Recorder implements recording for current rendering screen.
-/// Currently Recorder only works on Android (4.3 or later) and iOS with OpenGL ES 2.0 context.
+/// Currently Recorder only works on Android (4.3 or later) and iOS with OpenGL ES 3.0 context.
 /// Due to the dependency to OpenGLES, every method in this class (except requestPermissions, including the destructor) has to be called in a single thread containing an OpenGLES context.
 /// **Unity Only** If in Unity, Multi-threaded rendering is enabled, scripting thread and rendering thread will be two separate threads, which makes it impossible to call updateFrame in the rendering thread. For this reason, to use Recorder, Multi-threaded rendering option shall be disabled.
 /// On Android, it is required to add android.permission.RECORD_AUDIO to AndroidManifest.xml for use.
@@ -3284,11 +3303,11 @@ public:
     /// <summary>
     /// Creates a map from `SparseSpatialMap`_ and upload it to EasyAR cloud servers. After completion, a serverMapId will be returned for loading map from EasyAR cloud servers.
     /// </summary>
-    void host(std::shared_ptr<SparseSpatialMap> mapBuilder, std::string apiKey, std::string apiSecret, std::string sparseSpatialMapAppId, std::string name, std::optional<std::shared_ptr<Image>> preview, std::shared_ptr<CallbackScheduler> callbackScheduler, std::function<void(bool, std::string, std::string)> onCompleted);
+    void host(std::shared_ptr<SparseSpatialMap> mapBuilder, std::string apiKey, std::string apiSecret, std::string sparseSpatialMapAppId, std::string name, std::optional<std::shared_ptr<Image>> preview, std::optional<int> timeoutMilliseconds, std::shared_ptr<CallbackScheduler> callbackScheduler, std::function<void(bool, std::string, std::string)> onCompleted);
     /// <summary>
     /// Loads a map from EasyAR cloud servers by serverMapId. To unload the map, call `SparseSpatialMap.unloadMap`_ with serverMapId.
     /// </summary>
-    void load(std::shared_ptr<SparseSpatialMap> mapTracker, std::string serverMapId, std::string apiKey, std::string apiSecret, std::string sparseSpatialMapAppId, std::shared_ptr<CallbackScheduler> callbackScheduler, std::function<void(bool, std::string)> onCompleted);
+    void load(std::shared_ptr<SparseSpatialMap> mapTracker, std::string serverMapId, std::string apiKey, std::string apiSecret, std::string sparseSpatialMapAppId, std::optional<int> timeoutMilliseconds, std::shared_ptr<CallbackScheduler> callbackScheduler, std::function<void(bool, std::string)> onCompleted);
     /// <summary>
     /// Clears allocated cache space.
     /// </summary>
@@ -3302,7 +3321,7 @@ public:
     /// Gets the version schema hash, which can be used to ensure type declarations consistent with runtime library.
     /// </summary>
     static int schemaHash();
-    static bool initialize(std::string key);
+    static bool initialize(std::string licenseKey);
     /// <summary>
     /// Handles the app onPause, pauses internal tasks.
     /// </summary>
@@ -3323,12 +3342,20 @@ public:
     /// Gets the product name of EasyARSense. (Including variant, operating system and CPU architecture.)
     /// </summary>
     static std::string name();
+    /// <summary>
+    /// Gets the release variant of EasyARSense.
+    /// </summary>
+    static std::string variant();
+    /// <summary>
+    /// Checks whether the license key matches the provided release variant, package name(or bundle id) and operating system.
+    /// </summary>
+    static bool isLicenseKeyMatched(std::string licenseKey, std::string packageName, std::string variant, EngineOperatingSystem operatingSystem);
 };
 
 /// <summary>
 /// VideoPlayer is the class for video playback.
 /// EasyAR supports normal videos, transparent videos and streaming videos. The video content will be rendered into a texture passed into the player through setRenderTexture.
-/// This class only supports OpenGLES2 texture.
+/// This class only supports OpenGLES 3.0 texture.
 /// Due to the dependency to OpenGLES, every method in this class (including the destructor) has to be called in a single thread containing an OpenGLES context.
 /// Current version requires width and height being mutiples of 16.
 ///
@@ -4759,12 +4786,12 @@ _INLINE_SPECIFIER_ CalibrationDownloader::CalibrationDownloader()
     if (!(_return_value_ != nullptr)) { throw std::runtime_error("InvalidReturnValue"); };
     init_cdata(std::shared_ptr<easyar_CalibrationDownloader>(_return_value_, [](easyar_CalibrationDownloader * ptr) { easyar_CalibrationDownloader__dtor(ptr); }));
 }
-_INLINE_SPECIFIER_ void CalibrationDownloader::download(std::shared_ptr<CallbackScheduler> arg0, std::function<void(CalibrationDownloadStatus, std::optional<std::string>)> arg1)
+_INLINE_SPECIFIER_ void CalibrationDownloader::download(std::optional<int> arg0, std::shared_ptr<CallbackScheduler> arg1, std::function<void(CalibrationDownloadStatus, std::optional<std::string>)> arg2)
 {
     if (cdata_ == nullptr) { throw std::runtime_error("InvalidArgument: this"); }
-    if (!(arg0 != nullptr)) { throw std::runtime_error("InvalidArgument: callbackScheduler"); }
-    if (!(arg1 != nullptr)) { throw std::runtime_error("InvalidArgument: onCompleted"); }
-    easyar_CalibrationDownloader_download(cdata_.get(), arg0->get_cdata().get(), FunctorOfVoidFromCalibrationDownloadStatusAndOptionalOfString_to_c(arg1));
+    if (!(arg1 != nullptr)) { throw std::runtime_error("InvalidArgument: callbackScheduler"); }
+    if (!(arg2 != nullptr)) { throw std::runtime_error("InvalidArgument: onCompleted"); }
+    easyar_CalibrationDownloader_download(cdata_.get(), (arg0.has_value() ? easyar_OptionalOfInt{true, arg0.value()} : easyar_OptionalOfInt{false, {}}), arg1->get_cdata().get(), FunctorOfVoidFromCalibrationDownloadStatusAndOptionalOfString_to_c(arg2));
 }
 
 _INLINE_SPECIFIER_ CloudLocalizeResult::CloudLocalizeResult(std::shared_ptr<easyar_CloudLocalizeResult> cdata)
@@ -4966,13 +4993,13 @@ _INLINE_SPECIFIER_ std::shared_ptr<CloudLocalizer> CloudLocalizer::create(std::s
     if (!(_return_value_ != nullptr)) { throw std::runtime_error("InvalidReturnValue"); }
     return CloudLocalizer::from_cdata(std::shared_ptr<easyar_CloudLocalizer>(_return_value_, [](easyar_CloudLocalizer * ptr) { easyar_CloudLocalizer__dtor(ptr); }));
 }
-_INLINE_SPECIFIER_ void CloudLocalizer::resolve(std::shared_ptr<InputFrame> arg0, std::string arg1, std::optional<Vec3F> arg2, std::optional<Vec3D> arg3, std::shared_ptr<CallbackScheduler> arg4, std::function<void(std::shared_ptr<CloudLocalizeResult>)> arg5)
+_INLINE_SPECIFIER_ void CloudLocalizer::resolve(std::shared_ptr<InputFrame> arg0, std::string arg1, std::optional<Vec3F> arg2, std::optional<Vec3D> arg3, std::optional<int> arg4, std::shared_ptr<CallbackScheduler> arg5, std::function<void(std::shared_ptr<CloudLocalizeResult>)> arg6)
 {
     if (cdata_ == nullptr) { throw std::runtime_error("InvalidArgument: this"); }
     if (!(arg0 != nullptr)) { throw std::runtime_error("InvalidArgument: inputFrame"); }
-    if (!(arg4 != nullptr)) { throw std::runtime_error("InvalidArgument: callbackScheduler"); }
-    if (!(arg5 != nullptr)) { throw std::runtime_error("InvalidArgument: callback"); }
-    easyar_CloudLocalizer_resolve(cdata_.get(), arg0->get_cdata().get(), std_string_to_easyar_String(arg1).get(), (arg2.has_value() ? easyar_OptionalOfVec3F{true, easyar_Vec3F{{arg2.value().data[0], arg2.value().data[1], arg2.value().data[2]}}} : easyar_OptionalOfVec3F{false, {}}), (arg3.has_value() ? easyar_OptionalOfVec3D{true, easyar_Vec3D{{arg3.value().data[0], arg3.value().data[1], arg3.value().data[2]}}} : easyar_OptionalOfVec3D{false, {}}), arg4->get_cdata().get(), FunctorOfVoidFromCloudLocalizeResult_to_c(arg5));
+    if (!(arg5 != nullptr)) { throw std::runtime_error("InvalidArgument: callbackScheduler"); }
+    if (!(arg6 != nullptr)) { throw std::runtime_error("InvalidArgument: callback"); }
+    easyar_CloudLocalizer_resolve(cdata_.get(), arg0->get_cdata().get(), std_string_to_easyar_String(arg1).get(), (arg2.has_value() ? easyar_OptionalOfVec3F{true, easyar_Vec3F{{arg2.value().data[0], arg2.value().data[1], arg2.value().data[2]}}} : easyar_OptionalOfVec3F{false, {}}), (arg3.has_value() ? easyar_OptionalOfVec3D{true, easyar_Vec3D{{arg3.value().data[0], arg3.value().data[1], arg3.value().data[2]}}} : easyar_OptionalOfVec3D{false, {}}), (arg4.has_value() ? easyar_OptionalOfInt{true, arg4.value()} : easyar_OptionalOfInt{false, {}}), arg5->get_cdata().get(), FunctorOfVoidFromCloudLocalizeResult_to_c(arg6));
 }
 _INLINE_SPECIFIER_ void CloudLocalizer::close()
 {
@@ -5074,13 +5101,13 @@ _INLINE_SPECIFIER_ std::shared_ptr<CloudRecognizer> CloudRecognizer::createByClo
     if (!(_return_value_ != nullptr)) { throw std::runtime_error("InvalidReturnValue"); }
     return CloudRecognizer::from_cdata(std::shared_ptr<easyar_CloudRecognizer>(_return_value_, [](easyar_CloudRecognizer * ptr) { easyar_CloudRecognizer__dtor(ptr); }));
 }
-_INLINE_SPECIFIER_ void CloudRecognizer::resolve(std::shared_ptr<InputFrame> arg0, std::shared_ptr<CallbackScheduler> arg1, std::function<void(std::shared_ptr<CloudRecognizationResult>)> arg2)
+_INLINE_SPECIFIER_ void CloudRecognizer::resolve(std::shared_ptr<InputFrame> arg0, std::optional<int> arg1, std::shared_ptr<CallbackScheduler> arg2, std::function<void(std::shared_ptr<CloudRecognizationResult>)> arg3)
 {
     if (cdata_ == nullptr) { throw std::runtime_error("InvalidArgument: this"); }
     if (!(arg0 != nullptr)) { throw std::runtime_error("InvalidArgument: inputFrame"); }
-    if (!(arg1 != nullptr)) { throw std::runtime_error("InvalidArgument: callbackScheduler"); }
-    if (!(arg2 != nullptr)) { throw std::runtime_error("InvalidArgument: callback"); }
-    easyar_CloudRecognizer_resolve(cdata_.get(), arg0->get_cdata().get(), arg1->get_cdata().get(), FunctorOfVoidFromCloudRecognizationResult_to_c(arg2));
+    if (!(arg2 != nullptr)) { throw std::runtime_error("InvalidArgument: callbackScheduler"); }
+    if (!(arg3 != nullptr)) { throw std::runtime_error("InvalidArgument: callback"); }
+    easyar_CloudRecognizer_resolve(cdata_.get(), arg0->get_cdata().get(), (arg1.has_value() ? easyar_OptionalOfInt{true, arg1.value()} : easyar_OptionalOfInt{false, {}}), arg2->get_cdata().get(), FunctorOfVoidFromCloudRecognizationResult_to_c(arg3));
 }
 _INLINE_SPECIFIER_ void CloudRecognizer::close()
 {
@@ -5486,6 +5513,26 @@ _INLINE_SPECIFIER_ int Image::height()
     if (cdata_ == nullptr) { throw std::runtime_error("InvalidArgument: this"); }
     auto _return_value_ = easyar_Image_height(cdata_.get());
     return _return_value_;
+}
+_INLINE_SPECIFIER_ int Image::pixelWidth()
+{
+    if (cdata_ == nullptr) { throw std::runtime_error("InvalidArgument: this"); }
+    auto _return_value_ = easyar_Image_pixelWidth(cdata_.get());
+    return _return_value_;
+}
+_INLINE_SPECIFIER_ int Image::pixelHeight()
+{
+    if (cdata_ == nullptr) { throw std::runtime_error("InvalidArgument: this"); }
+    auto _return_value_ = easyar_Image_pixelHeight(cdata_.get());
+    return _return_value_;
+}
+_INLINE_SPECIFIER_ std::shared_ptr<Image> Image::create(std::shared_ptr<Buffer> arg0, PixelFormat arg1, int arg2, int arg3, int arg4, int arg5)
+{
+    if (!(arg0 != nullptr)) { throw std::runtime_error("InvalidArgument: buffer"); }
+    easyar_Image * _return_value_;
+    easyar_Image_create(arg0->get_cdata().get(), static_cast<easyar_PixelFormat>(arg1), arg2, arg3, arg4, arg5, &_return_value_);
+    if (!(_return_value_ != nullptr)) { throw std::runtime_error("InvalidReturnValue"); }
+    return Image::from_cdata(std::shared_ptr<easyar_Image>(_return_value_, [](easyar_Image * ptr) { easyar_Image__dtor(ptr); }));
 }
 
 _INLINE_SPECIFIER_ DenseSpatialMap::DenseSpatialMap(std::shared_ptr<easyar_DenseSpatialMap> cdata)
@@ -7701,22 +7748,22 @@ _INLINE_SPECIFIER_ std::shared_ptr<SparseSpatialMapManager> SparseSpatialMapMana
     if (!(_return_value_ != nullptr)) { throw std::runtime_error("InvalidReturnValue"); }
     return SparseSpatialMapManager::from_cdata(std::shared_ptr<easyar_SparseSpatialMapManager>(_return_value_, [](easyar_SparseSpatialMapManager * ptr) { easyar_SparseSpatialMapManager__dtor(ptr); }));
 }
-_INLINE_SPECIFIER_ void SparseSpatialMapManager::host(std::shared_ptr<SparseSpatialMap> arg0, std::string arg1, std::string arg2, std::string arg3, std::string arg4, std::optional<std::shared_ptr<Image>> arg5, std::shared_ptr<CallbackScheduler> arg6, std::function<void(bool, std::string, std::string)> arg7)
+_INLINE_SPECIFIER_ void SparseSpatialMapManager::host(std::shared_ptr<SparseSpatialMap> arg0, std::string arg1, std::string arg2, std::string arg3, std::string arg4, std::optional<std::shared_ptr<Image>> arg5, std::optional<int> arg6, std::shared_ptr<CallbackScheduler> arg7, std::function<void(bool, std::string, std::string)> arg8)
 {
     if (cdata_ == nullptr) { throw std::runtime_error("InvalidArgument: this"); }
     if (!(arg0 != nullptr)) { throw std::runtime_error("InvalidArgument: mapBuilder"); }
     if (!(!arg5.has_value() || (arg5.value() != nullptr))) { throw std::runtime_error("InvalidArgument: preview"); }
-    if (!(arg6 != nullptr)) { throw std::runtime_error("InvalidArgument: callbackScheduler"); }
-    if (!(arg7 != nullptr)) { throw std::runtime_error("InvalidArgument: onCompleted"); }
-    easyar_SparseSpatialMapManager_host(cdata_.get(), arg0->get_cdata().get(), std_string_to_easyar_String(arg1).get(), std_string_to_easyar_String(arg2).get(), std_string_to_easyar_String(arg3).get(), std_string_to_easyar_String(arg4).get(), (arg5.has_value() ? easyar_OptionalOfImage{true, arg5.value()->get_cdata().get()} : easyar_OptionalOfImage{false, {}}), arg6->get_cdata().get(), FunctorOfVoidFromBoolAndStringAndString_to_c(arg7));
+    if (!(arg7 != nullptr)) { throw std::runtime_error("InvalidArgument: callbackScheduler"); }
+    if (!(arg8 != nullptr)) { throw std::runtime_error("InvalidArgument: onCompleted"); }
+    easyar_SparseSpatialMapManager_host(cdata_.get(), arg0->get_cdata().get(), std_string_to_easyar_String(arg1).get(), std_string_to_easyar_String(arg2).get(), std_string_to_easyar_String(arg3).get(), std_string_to_easyar_String(arg4).get(), (arg5.has_value() ? easyar_OptionalOfImage{true, arg5.value()->get_cdata().get()} : easyar_OptionalOfImage{false, {}}), (arg6.has_value() ? easyar_OptionalOfInt{true, arg6.value()} : easyar_OptionalOfInt{false, {}}), arg7->get_cdata().get(), FunctorOfVoidFromBoolAndStringAndString_to_c(arg8));
 }
-_INLINE_SPECIFIER_ void SparseSpatialMapManager::load(std::shared_ptr<SparseSpatialMap> arg0, std::string arg1, std::string arg2, std::string arg3, std::string arg4, std::shared_ptr<CallbackScheduler> arg5, std::function<void(bool, std::string)> arg6)
+_INLINE_SPECIFIER_ void SparseSpatialMapManager::load(std::shared_ptr<SparseSpatialMap> arg0, std::string arg1, std::string arg2, std::string arg3, std::string arg4, std::optional<int> arg5, std::shared_ptr<CallbackScheduler> arg6, std::function<void(bool, std::string)> arg7)
 {
     if (cdata_ == nullptr) { throw std::runtime_error("InvalidArgument: this"); }
     if (!(arg0 != nullptr)) { throw std::runtime_error("InvalidArgument: mapTracker"); }
-    if (!(arg5 != nullptr)) { throw std::runtime_error("InvalidArgument: callbackScheduler"); }
-    if (!(arg6 != nullptr)) { throw std::runtime_error("InvalidArgument: onCompleted"); }
-    easyar_SparseSpatialMapManager_load(cdata_.get(), arg0->get_cdata().get(), std_string_to_easyar_String(arg1).get(), std_string_to_easyar_String(arg2).get(), std_string_to_easyar_String(arg3).get(), std_string_to_easyar_String(arg4).get(), arg5->get_cdata().get(), FunctorOfVoidFromBoolAndString_to_c(arg6));
+    if (!(arg6 != nullptr)) { throw std::runtime_error("InvalidArgument: callbackScheduler"); }
+    if (!(arg7 != nullptr)) { throw std::runtime_error("InvalidArgument: onCompleted"); }
+    easyar_SparseSpatialMapManager_load(cdata_.get(), arg0->get_cdata().get(), std_string_to_easyar_String(arg1).get(), std_string_to_easyar_String(arg2).get(), std_string_to_easyar_String(arg3).get(), std_string_to_easyar_String(arg4).get(), (arg5.has_value() ? easyar_OptionalOfInt{true, arg5.value()} : easyar_OptionalOfInt{false, {}}), arg6->get_cdata().get(), FunctorOfVoidFromBoolAndString_to_c(arg7));
 }
 _INLINE_SPECIFIER_ void SparseSpatialMapManager::clear()
 {
@@ -7731,7 +7778,7 @@ _INLINE_SPECIFIER_ int Engine::schemaHash()
 }
 _INLINE_SPECIFIER_ bool Engine::initialize(std::string arg0)
 {
-    if (easyar_Engine_schemaHash() != -2089645540) {
+    if (easyar_Engine_schemaHash() != -1570438390) {
         throw std::runtime_error("SchemaHashNotMatched");
     }
     auto _return_value_ = easyar_Engine_initialize(std_string_to_easyar_String(arg0).get());
@@ -7765,6 +7812,18 @@ _INLINE_SPECIFIER_ std::string Engine::name()
     easyar_Engine_name(&_return_value_);
     if (!(_return_value_ != nullptr)) { throw std::runtime_error("InvalidReturnValue"); }
     return std_string_from_easyar_String(std::shared_ptr<easyar_String>(_return_value_, [](easyar_String * ptr) { easyar_String__dtor(ptr); }));
+}
+_INLINE_SPECIFIER_ std::string Engine::variant()
+{
+    easyar_String * _return_value_;
+    easyar_Engine_variant(&_return_value_);
+    if (!(_return_value_ != nullptr)) { throw std::runtime_error("InvalidReturnValue"); }
+    return std_string_from_easyar_String(std::shared_ptr<easyar_String>(_return_value_, [](easyar_String * ptr) { easyar_String__dtor(ptr); }));
+}
+_INLINE_SPECIFIER_ bool Engine::isLicenseKeyMatched(std::string arg0, std::string arg1, std::string arg2, EngineOperatingSystem arg3)
+{
+    auto _return_value_ = easyar_Engine_isLicenseKeyMatched(std_string_to_easyar_String(arg0).get(), std_string_to_easyar_String(arg1).get(), std_string_to_easyar_String(arg2).get(), static_cast<easyar_EngineOperatingSystem>(arg3));
+    return _return_value_;
 }
 
 _INLINE_SPECIFIER_ VideoPlayer::VideoPlayer(std::shared_ptr<easyar_VideoPlayer> cdata)
@@ -9238,7 +9297,7 @@ static void FunctorOfVoid_func(void * _state, /* OUT */ easyar_String * * _excep
         auto f = reinterpret_cast<std::function<void()> *>(_state);
         (*f)();
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9355,7 +9414,7 @@ static void FunctorOfVoidFromOutputFrame_func(void * _state, easyar_OutputFrame 
         auto f = reinterpret_cast<std::function<void(std::shared_ptr<OutputFrame>)> *>(_state);
         (*f)(cpparg0);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9379,7 +9438,7 @@ static void FunctorOfVoidFromTargetAndBool_func(void * _state, easyar_Target * a
         auto f = reinterpret_cast<std::function<void(std::shared_ptr<Target>, bool)> *>(_state);
         (*f)(cpparg0, cpparg1);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9436,7 +9495,7 @@ static void FunctorOfVoidFromCalibrationDownloadStatusAndOptionalOfString_func(v
         auto f = reinterpret_cast<std::function<void(CalibrationDownloadStatus, std::optional<std::string>)> *>(_state);
         (*f)(cpparg0, cpparg1);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9517,7 +9576,7 @@ static void FunctorOfVoidFromCloudLocalizeResult_func(void * _state, easyar_Clou
         auto f = reinterpret_cast<std::function<void(std::shared_ptr<CloudLocalizeResult>)> *>(_state);
         (*f)(cpparg0);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9573,7 +9632,7 @@ static void FunctorOfVoidFromCloudRecognizationResult_func(void * _state, easyar
         auto f = reinterpret_cast<std::function<void(std::shared_ptr<CloudRecognizationResult>)> *>(_state);
         (*f)(cpparg0);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9624,7 +9683,7 @@ static void FunctorOfVoidFromInputFrame_func(void * _state, easyar_InputFrame * 
         auto f = reinterpret_cast<std::function<void(std::shared_ptr<InputFrame>)> *>(_state);
         (*f)(cpparg0);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9646,7 +9705,7 @@ static void FunctorOfVoidFromCameraState_func(void * _state, easyar_CameraState 
         auto f = reinterpret_cast<std::function<void(CameraState)> *>(_state);
         (*f)(cpparg0);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9670,7 +9729,7 @@ static void FunctorOfVoidFromPermissionStatusAndString_func(void * _state, easya
         auto f = reinterpret_cast<std::function<void(PermissionStatus, std::string)> *>(_state);
         (*f)(cpparg0, cpparg1);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9694,7 +9753,7 @@ static void FunctorOfVoidFromLogLevelAndString_func(void * _state, easyar_LogLev
         auto f = reinterpret_cast<std::function<void(LogLevel, std::string)> *>(_state);
         (*f)(cpparg0, cpparg1);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9718,7 +9777,7 @@ static void FunctorOfVoidFromRecordStatusAndString_func(void * _state, easyar_Re
         auto f = reinterpret_cast<std::function<void(RecordStatus, std::string)> *>(_state);
         (*f)(cpparg0, cpparg1);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9773,7 +9832,7 @@ static void FunctorOfVoidFromBool_func(void * _state, bool arg0, /* OUT */ easya
         auto f = reinterpret_cast<std::function<void(bool)> *>(_state);
         (*f)(cpparg0);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9799,7 +9858,7 @@ static void FunctorOfVoidFromBoolAndStringAndString_func(void * _state, bool arg
         auto f = reinterpret_cast<std::function<void(bool, std::string, std::string)> *>(_state);
         (*f)(cpparg0, cpparg1, cpparg2);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9823,7 +9882,7 @@ static void FunctorOfVoidFromBoolAndString_func(void * _state, bool arg0, easyar
         auto f = reinterpret_cast<std::function<void(bool, std::string)> *>(_state);
         (*f)(cpparg0, cpparg1);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9845,7 +9904,7 @@ static void FunctorOfVoidFromVideoStatus_func(void * _state, easyar_VideoStatus 
         auto f = reinterpret_cast<std::function<void(VideoStatus)> *>(_state);
         (*f)(cpparg0);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9868,7 +9927,7 @@ static void FunctorOfVoidFromFeedbackFrame_func(void * _state, easyar_FeedbackFr
         auto f = reinterpret_cast<std::function<void(std::shared_ptr<FeedbackFrame>)> *>(_state);
         (*f)(cpparg0);
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }
@@ -9898,7 +9957,7 @@ static void FunctorOfOutputFrameFromListOfOutputFrame_func(void * _state, easyar
         easyar_OutputFrame__retain(_return_value_c_, &_return_value_c_);
         *Return = _return_value_c_;
     } catch (std::exception & ex) {
-        auto message = std::string() + typeid(*(&ex)).name() + u8"\n" + ex.what();
+        auto message = std::string() + typeid(*(&ex)).name() + "\n" + ex.what();
         easyar_String_from_utf8_begin(message.c_str(), _exception);
     }
 }

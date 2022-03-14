@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.4.0.9304-eb4ecde40
-// Copyright (c) 2015-2021 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.5.0.9653-15c04a97e
+// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -28,11 +28,11 @@
 /// <summary>
 /// Creates a map from `SparseSpatialMap`_ and upload it to EasyAR cloud servers. After completion, a serverMapId will be returned for loading map from EasyAR cloud servers.
 /// </summary>
-- (void)host:(easyar_SparseSpatialMap *)mapBuilder apiKey:(NSString *)apiKey apiSecret:(NSString *)apiSecret sparseSpatialMapAppId:(NSString *)sparseSpatialMapAppId name:(NSString *)name preview:(easyar_Image *)preview callbackScheduler:(easyar_CallbackScheduler *)callbackScheduler onCompleted:(void (^)(bool isSuccessful, NSString * serverMapId, NSString * error))onCompleted;
+- (void)host:(easyar_SparseSpatialMap *)mapBuilder apiKey:(NSString *)apiKey apiSecret:(NSString *)apiSecret sparseSpatialMapAppId:(NSString *)sparseSpatialMapAppId name:(NSString *)name preview:(easyar_Image *)preview timeoutMilliseconds:(NSNumber *)timeoutMilliseconds callbackScheduler:(easyar_CallbackScheduler *)callbackScheduler onCompleted:(void (^)(bool isSuccessful, NSString * serverMapId, NSString * error))onCompleted;
 /// <summary>
 /// Loads a map from EasyAR cloud servers by serverMapId. To unload the map, call `SparseSpatialMap.unloadMap`_ with serverMapId.
 /// </summary>
-- (void)load:(easyar_SparseSpatialMap *)mapTracker serverMapId:(NSString *)serverMapId apiKey:(NSString *)apiKey apiSecret:(NSString *)apiSecret sparseSpatialMapAppId:(NSString *)sparseSpatialMapAppId callbackScheduler:(easyar_CallbackScheduler *)callbackScheduler onCompleted:(void (^)(bool isSuccessful, NSString * error))onCompleted;
+- (void)load:(easyar_SparseSpatialMap *)mapTracker serverMapId:(NSString *)serverMapId apiKey:(NSString *)apiKey apiSecret:(NSString *)apiSecret sparseSpatialMapAppId:(NSString *)sparseSpatialMapAppId timeoutMilliseconds:(NSNumber *)timeoutMilliseconds callbackScheduler:(easyar_CallbackScheduler *)callbackScheduler onCompleted:(void (^)(bool isSuccessful, NSString * error))onCompleted;
 /// <summary>
 /// Clears allocated cache space.
 /// </summary>

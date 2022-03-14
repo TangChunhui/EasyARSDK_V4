@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.4.0.9304-eb4ecde40
-// Copyright (c) 2015-2021 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.5.0.9653-15c04a97e
+// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -685,7 +685,7 @@ typedef struct { char _placeHolder_; } easyar_SurfaceTracker;
 typedef enum
 {
     /// <summary>
-    /// The device does not support motion tracking. It has not our passed our verification or is waiting for calibration.
+    /// The device does not support motion tracking. It has failed in calibration or is to be calibrated.
     /// </summary>
     easyar_MotionTrackerCameraDeviceQualityLevel_NotSupported = 0,
     /// <summary>
@@ -749,7 +749,7 @@ typedef enum
     /// </summary>
     easyar_MotionTrackerCameraDeviceTrackingMode_SLAM = 1,
     /// <summary>
-    /// Anchor is SLAM(Simultaneous tracking and mapping) with real time pose correction.  CPU and memory usage are highest。Anchor supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
+    /// Anchor is SLAM(Simultaneous tracking and mapping) with real time pose correction. CPU and memory usage are highest。Anchor supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
     /// </summary>
     easyar_MotionTrackerCameraDeviceTrackingMode_Anchor = 2,
 } easyar_MotionTrackerCameraDeviceTrackingMode;
@@ -894,7 +894,7 @@ typedef struct { char _placeHolder_; } easyar_RealTimeCoordinateTransform;
 /// <summary>
 /// class
 /// Recorder implements recording for current rendering screen.
-/// Currently Recorder only works on Android (4.3 or later) and iOS with OpenGL ES 2.0 context.
+/// Currently Recorder only works on Android (4.3 or later) and iOS with OpenGL ES 3.0 context.
 /// Due to the dependency to OpenGLES, every method in this class (except requestPermissions, including the destructor) has to be called in a single thread containing an OpenGLES context.
 /// **Unity Only** If in Unity, Multi-threaded rendering is enabled, scripting thread and rendering thread will be two separate threads, which makes it impossible to call updateFrame in the rendering thread. For this reason, to use Recorder, Multi-threaded rendering option shall be disabled.
 /// On Android, it is required to add android.permission.RECORD_AUDIO to AndroidManifest.xml for use.
@@ -1087,6 +1087,16 @@ typedef struct { char _placeHolder_; } easyar_SparseSpatialMap;
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_SparseSpatialMapManager;
 
+typedef enum
+{
+    easyar_EngineOperatingSystem_Windows = 0,
+    easyar_EngineOperatingSystem_Linux = 1,
+    easyar_EngineOperatingSystem_MacOS = 2,
+    easyar_EngineOperatingSystem_iOS = 3,
+    easyar_EngineOperatingSystem_Android = 4,
+    easyar_EngineOperatingSystem_WinRT = 5,
+} easyar_EngineOperatingSystem;
+
 /// <summary>
 /// class
 /// </summary>
@@ -1128,7 +1138,7 @@ typedef enum
 /// class
 /// VideoPlayer is the class for video playback.
 /// EasyAR supports normal videos, transparent videos and streaming videos. The video content will be rendered into a texture passed into the player through setRenderTexture.
-/// This class only supports OpenGLES2 texture.
+/// This class only supports OpenGLES 3.0 texture.
 /// Due to the dependency to OpenGLES, every method in this class (including the destructor) has to be called in a single thread containing an OpenGLES context.
 /// Current version requires width and height being mutiples of 16.
 ///
@@ -1440,6 +1450,8 @@ typedef struct
 } easyar_FunctorOfVoidFromTargetAndBool;
 
 typedef struct { char _placeHolder_; } easyar_ListOfTarget;
+
+typedef struct { bool has_value; int value; } easyar_OptionalOfInt;
 
 typedef struct { bool has_value; easyar_String * value; } easyar_OptionalOfString;
 

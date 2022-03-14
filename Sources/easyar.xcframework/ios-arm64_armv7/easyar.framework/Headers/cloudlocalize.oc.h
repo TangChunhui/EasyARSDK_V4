@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.4.0.9304-eb4ecde40
-// Copyright (c) 2015-2021 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.5.0.9653-15c04a97e
+// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -113,7 +113,7 @@
 /// acceleration is optional which is the readings from device accelerometer.
 /// location is optional which is the readings from device location manager.
 /// </summary>
-- (void)resolve:(easyar_InputFrame *)inputFrame message:(NSString *)message acceleration:(easyar_Vec3F *)acceleration location:(easyar_Vec3D *)location callbackScheduler:(easyar_CallbackScheduler *)callbackScheduler callback:(void (^)(easyar_CloudLocalizeResult * result))callback;
+- (void)resolve:(easyar_InputFrame *)inputFrame message:(NSString *)message acceleration:(easyar_Vec3F *)acceleration location:(easyar_Vec3D *)location timeoutMilliseconds:(NSNumber *)timeoutMilliseconds callbackScheduler:(easyar_CallbackScheduler *)callbackScheduler callback:(void (^)(easyar_CloudLocalizeResult * result))callback;
 /// <summary>
 /// Stops the localization and closes connection. The component shall not be used after calling close.
 /// </summary>

@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.4.0.9304-eb4ecde40
-// Copyright (c) 2015-2021 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.5.0.9653-15c04a97e
+// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -27,11 +27,11 @@ void easyar_SparseSpatialMapManager_create(/* OUT */ easyar_SparseSpatialMapMana
 /// <summary>
 /// Creates a map from `SparseSpatialMap`_ and upload it to EasyAR cloud servers. After completion, a serverMapId will be returned for loading map from EasyAR cloud servers.
 /// </summary>
-void easyar_SparseSpatialMapManager_host(easyar_SparseSpatialMapManager * This, easyar_SparseSpatialMap * mapBuilder, easyar_String * apiKey, easyar_String * apiSecret, easyar_String * sparseSpatialMapAppId, easyar_String * name, easyar_OptionalOfImage preview, easyar_CallbackScheduler * callbackScheduler, easyar_FunctorOfVoidFromBoolAndStringAndString onCompleted);
+void easyar_SparseSpatialMapManager_host(easyar_SparseSpatialMapManager * This, easyar_SparseSpatialMap * mapBuilder, easyar_String * apiKey, easyar_String * apiSecret, easyar_String * sparseSpatialMapAppId, easyar_String * name, easyar_OptionalOfImage preview, easyar_OptionalOfInt timeoutMilliseconds, easyar_CallbackScheduler * callbackScheduler, easyar_FunctorOfVoidFromBoolAndStringAndString onCompleted);
 /// <summary>
 /// Loads a map from EasyAR cloud servers by serverMapId. To unload the map, call `SparseSpatialMap.unloadMap`_ with serverMapId.
 /// </summary>
-void easyar_SparseSpatialMapManager_load(easyar_SparseSpatialMapManager * This, easyar_SparseSpatialMap * mapTracker, easyar_String * serverMapId, easyar_String * apiKey, easyar_String * apiSecret, easyar_String * sparseSpatialMapAppId, easyar_CallbackScheduler * callbackScheduler, easyar_FunctorOfVoidFromBoolAndString onCompleted);
+void easyar_SparseSpatialMapManager_load(easyar_SparseSpatialMapManager * This, easyar_SparseSpatialMap * mapTracker, easyar_String * serverMapId, easyar_String * apiKey, easyar_String * apiSecret, easyar_String * sparseSpatialMapAppId, easyar_OptionalOfInt timeoutMilliseconds, easyar_CallbackScheduler * callbackScheduler, easyar_FunctorOfVoidFromBoolAndString onCompleted);
 /// <summary>
 /// Clears allocated cache space.
 /// </summary>

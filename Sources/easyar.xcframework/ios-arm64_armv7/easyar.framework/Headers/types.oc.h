@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.4.0.9304-eb4ecde40
-// Copyright (c) 2015-2021 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.5.0.9653-15c04a97e
+// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -353,7 +353,7 @@ typedef enum easyar_CameraDevicePreference : NSInteger
 typedef enum easyar_MotionTrackerCameraDeviceQualityLevel : NSInteger
 {
     /// <summary>
-    /// The device does not support motion tracking. It has not our passed our verification or is waiting for calibration.
+    /// The device does not support motion tracking. It has failed in calibration or is to be calibrated.
     /// </summary>
     easyar_MotionTrackerCameraDeviceQualityLevel_NotSupported = 0,
     /// <summary>
@@ -417,7 +417,7 @@ typedef enum easyar_MotionTrackerCameraDeviceTrackingMode : NSInteger
     /// </summary>
     easyar_MotionTrackerCameraDeviceTrackingMode_SLAM = 1,
     /// <summary>
-    /// Anchor is SLAM(Simultaneous tracking and mapping) with real time pose correction.  CPU and memory usage are highest。Anchor supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
+    /// Anchor is SLAM(Simultaneous tracking and mapping) with real time pose correction. CPU and memory usage are highest。Anchor supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
     /// </summary>
     easyar_MotionTrackerCameraDeviceTrackingMode_Anchor = 2,
 } easyar_MotionTrackerCameraDeviceTrackingMode;
@@ -639,6 +639,16 @@ typedef enum easyar_LocalizationMode : NSInteger
 @class easyar_SparseSpatialMap;
 
 @class easyar_SparseSpatialMapManager;
+
+typedef enum easyar_EngineOperatingSystem : NSInteger
+{
+    easyar_EngineOperatingSystem_Windows = 0,
+    easyar_EngineOperatingSystem_Linux = 1,
+    easyar_EngineOperatingSystem_MacOS = 2,
+    easyar_EngineOperatingSystem_iOS = 3,
+    easyar_EngineOperatingSystem_Android = 4,
+    easyar_EngineOperatingSystem_WinRT = 5,
+} easyar_EngineOperatingSystem;
 
 @class easyar_Engine;
 

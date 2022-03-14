@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.4.0.9304-eb4ecde40
-// Copyright (c) 2015-2021 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.5.0.9653-15c04a97e
+// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -47,7 +47,7 @@ void easyar_CloudRecognizer_createByCloudSecret(easyar_String * cloudRecognition
 /// <summary>
 /// Send recognition request. The lowest available request interval is 300ms.
 /// </summary>
-void easyar_CloudRecognizer_resolve(easyar_CloudRecognizer * This, easyar_InputFrame * inputFrame, easyar_CallbackScheduler * callbackScheduler, easyar_FunctorOfVoidFromCloudRecognizationResult callback);
+void easyar_CloudRecognizer_resolve(easyar_CloudRecognizer * This, easyar_InputFrame * inputFrame, easyar_OptionalOfInt timeoutMilliseconds, easyar_CallbackScheduler * callbackScheduler, easyar_FunctorOfVoidFromCloudRecognizationResult callback);
 /// <summary>
 /// Stops the recognition and closes connection. The component shall not be used after calling close.
 /// </summary>

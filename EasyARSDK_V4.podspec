@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'EasyARSDK_V4'
-  s.version          = '0.1.2'
+  s.version          = '4.5.0'
   s.summary          = 'easyar sdk'
 
 # This description is used to generate tags and improve search results.

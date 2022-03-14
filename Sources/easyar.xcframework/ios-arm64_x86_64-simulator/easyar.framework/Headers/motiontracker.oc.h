@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.4.0.9304-eb4ecde40
-// Copyright (c) 2015-2021 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.5.0.9653-15c04a97e
+// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -25,7 +25,7 @@
 /// </summary>
 + (easyar_MotionTrackerCameraDevice *) create;
 /// <summary>
-/// Check if the devices supports motion tracking. Returns True if the device supports Motion Tracking, otherwise returns False.
+/// Check if the devices supports motion tracking. It returns True if the device supports Motion Tracking, otherwise it returns False.
 /// </summary>
 + (bool)isAvailable;
 /// <summary>
@@ -33,19 +33,19 @@
 /// </summary>
 + (easyar_MotionTrackerCameraDeviceQualityLevel)getQualityLevel;
 /// <summary>
-/// Sets current index of frame rate. Call before start. If this function is not called, the default is 30 fps.
+/// Sets current frame rate. Call before start. If this function is not called, the default is 30 fps.
 /// </summary>
 - (bool)setFrameRateType:(easyar_MotionTrackerCameraDeviceFPS)fps;
 /// <summary>
-/// Sets focus mode to focusMode. Call before start. If this function is not called, the default is Continousauto.
+/// Sets focus mode. Call before start. If this function is not called, the default is Continousauto.
 /// </summary>
 - (bool)setFocusMode:(easyar_MotionTrackerCameraDeviceFocusMode)focusMode;
 /// <summary>
-/// Sets current index of frame resolution. Call before start. If this function is not called, the default is 1280 x 960 or 1280 x 720.
+/// Sets frame resolution. Call before start. If this function is not called, the default is 1280 x 960 or 1280 x 720.
 /// </summary>
 - (bool)setFrameResolutionType:(easyar_MotionTrackerCameraDeviceResolution)resolution;
 /// <summary>
-/// Sets current tracking mode. Call before start. If this function is not called, the default is Anchor.
+/// Sets tracking mode. Call before start. If this function is not called, the default is Anchor.
 /// </summary>
 - (bool)setTrackingMode:(easyar_MotionTrackerCameraDeviceTrackingMode)trackingMode;
 /// <summary>

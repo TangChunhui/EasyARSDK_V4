@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.4.0.9304-eb4ecde40
-// Copyright (c) 2015-2021 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.5.0.9653-15c04a97e
+// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -21,7 +21,7 @@ extern "C" {
 /// </summary>
 void easyar_MotionTrackerCameraDevice__ctor(/* OUT */ easyar_MotionTrackerCameraDevice * * Return);
 /// <summary>
-/// Check if the devices supports motion tracking. Returns True if the device supports Motion Tracking, otherwise returns False.
+/// Check if the devices supports motion tracking. It returns True if the device supports Motion Tracking, otherwise it returns False.
 /// </summary>
 bool easyar_MotionTrackerCameraDevice_isAvailable(void);
 /// <summary>
@@ -29,19 +29,19 @@ bool easyar_MotionTrackerCameraDevice_isAvailable(void);
 /// </summary>
 easyar_MotionTrackerCameraDeviceQualityLevel easyar_MotionTrackerCameraDevice_getQualityLevel(void);
 /// <summary>
-/// Sets current index of frame rate. Call before start. If this function is not called, the default is 30 fps.
+/// Sets current frame rate. Call before start. If this function is not called, the default is 30 fps.
 /// </summary>
 bool easyar_MotionTrackerCameraDevice_setFrameRateType(easyar_MotionTrackerCameraDevice * This, easyar_MotionTrackerCameraDeviceFPS fps);
 /// <summary>
-/// Sets focus mode to focusMode. Call before start. If this function is not called, the default is Continousauto.
+/// Sets focus mode. Call before start. If this function is not called, the default is Continousauto.
 /// </summary>
 bool easyar_MotionTrackerCameraDevice_setFocusMode(easyar_MotionTrackerCameraDevice * This, easyar_MotionTrackerCameraDeviceFocusMode focusMode);
 /// <summary>
-/// Sets current index of frame resolution. Call before start. If this function is not called, the default is 1280 x 960 or 1280 x 720.
+/// Sets frame resolution. Call before start. If this function is not called, the default is 1280 x 960 or 1280 x 720.
 /// </summary>
 bool easyar_MotionTrackerCameraDevice_setFrameResolutionType(easyar_MotionTrackerCameraDevice * This, easyar_MotionTrackerCameraDeviceResolution resolution);
 /// <summary>
-/// Sets current tracking mode. Call before start. If this function is not called, the default is Anchor.
+/// Sets tracking mode. Call before start. If this function is not called, the default is Anchor.
 /// </summary>
 bool easyar_MotionTrackerCameraDevice_setTrackingMode(easyar_MotionTrackerCameraDevice * This, easyar_MotionTrackerCameraDeviceTrackingMode trackingMode);
 /// <summary>

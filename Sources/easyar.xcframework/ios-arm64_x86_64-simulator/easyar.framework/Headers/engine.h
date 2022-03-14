@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.4.0.9304-eb4ecde40
-// Copyright (c) 2015-2021 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.5.0.9653-15c04a97e
+// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -20,7 +20,7 @@ extern "C" {
 /// Gets the version schema hash, which can be used to ensure type declarations consistent with runtime library.
 /// </summary>
 int easyar_Engine_schemaHash(void);
-bool easyar_Engine_initialize(easyar_String * key);
+bool easyar_Engine_initialize(easyar_String * licenseKey);
 /// <summary>
 /// Handles the app onPause, pauses internal tasks.
 /// </summary>
@@ -41,6 +41,14 @@ void easyar_Engine_versionString(/* OUT */ easyar_String * * Return);
 /// Gets the product name of EasyARSense. (Including variant, operating system and CPU architecture.)
 /// </summary>
 void easyar_Engine_name(/* OUT */ easyar_String * * Return);
+/// <summary>
+/// Gets the release variant of EasyARSense.
+/// </summary>
+void easyar_Engine_variant(/* OUT */ easyar_String * * Return);
+/// <summary>
+/// Checks whether the license key matches the provided release variant, package name(or bundle id) and operating system.
+/// </summary>
+bool easyar_Engine_isLicenseKeyMatched(easyar_String * licenseKey, easyar_String * packageName, easyar_String * variant, easyar_EngineOperatingSystem operatingSystem);
 
 #ifdef __cplusplus
 }
