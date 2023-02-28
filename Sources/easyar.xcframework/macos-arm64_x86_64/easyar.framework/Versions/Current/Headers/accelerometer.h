@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -21,6 +21,10 @@ void easyar_Accelerometer__ctor(/* OUT */ easyar_Accelerometer * * Return);
 /// Checks if the component is available. It returns true only on Android or iOS with supported hardware. On other operating systems, it is not supported.
 /// </summary>
 bool easyar_Accelerometer_isAvailable(easyar_Accelerometer * This);
+/// <summary>
+/// Output port.
+/// </summary>
+void easyar_Accelerometer_output(easyar_Accelerometer * This, /* OUT */ easyar_AccelerometerResultSource * * Return);
 /// <summary>
 /// Opens the device. Sampling period is defined by implementation. If failed, it will return false.
 /// </summary>

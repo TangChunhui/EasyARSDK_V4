@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -23,6 +23,28 @@
 @class easyar_ObjectTrackerResult;
 
 @class easyar_ObjectTracker;
+
+typedef enum easyar_ARCoreDeviceListDownloadStatus : NSInteger
+{
+    /// <summary>
+    /// Download successful.
+    /// </summary>
+    easyar_ARCoreDeviceListDownloadStatus_Successful = 0,
+    /// <summary>
+    /// Data is already latest.
+    /// </summary>
+    easyar_ARCoreDeviceListDownloadStatus_NotModified = 1,
+    /// <summary>
+    /// Connection error
+    /// </summary>
+    easyar_ARCoreDeviceListDownloadStatus_ConnectionError = 2,
+    /// <summary>
+    /// Unexpected error
+    /// </summary>
+    easyar_ARCoreDeviceListDownloadStatus_UnexpectedError = 3,
+} easyar_ARCoreDeviceListDownloadStatus;
+
+@class easyar_ARCoreDeviceListDownloader;
 
 typedef enum easyar_CalibrationDownloadStatus : NSInteger
 {
@@ -46,37 +68,77 @@ typedef enum easyar_CalibrationDownloadStatus : NSInteger
 
 @class easyar_CalibrationDownloader;
 
-typedef enum easyar_CloudLocalizeStatus : NSInteger
+typedef enum easyar_CloudLocalizerStatus : NSInteger
 {
     /// <summary>
-    /// Spatial maps are localized.
+    /// Unknown error
     /// </summary>
-    easyar_CloudLocalizeStatus_FoundMaps = 0,
+    easyar_CloudLocalizerStatus_UnknownError = 0,
     /// <summary>
-    /// No spatial maps are localized.
+    /// A block is localized.
     /// </summary>
-    easyar_CloudLocalizeStatus_MapsNotFound = 1,
+    easyar_CloudLocalizerStatus_Found = 1,
     /// <summary>
-    /// Protocol error
+    /// No blocks are localized.
     /// </summary>
-    easyar_CloudLocalizeStatus_ProtocolError = 2,
-    /// <summary>
-    /// Exception caught
-    /// </summary>
-    easyar_CloudLocalizeStatus_ExceptionCaught = 3,
+    easyar_CloudLocalizerStatus_NotFound = 2,
     /// <summary>
     /// Request time out (more than 1 minute)
     /// </summary>
-    easyar_CloudLocalizeStatus_RequestTimeout = 4,
+    easyar_CloudLocalizerStatus_RequestTimeout = 3,
     /// <summary>
     /// Request time interval is too low
     /// </summary>
-    easyar_CloudLocalizeStatus_RequestIntervalTooLow = 5,
-} easyar_CloudLocalizeStatus;
+    easyar_CloudLocalizerStatus_RequestIntervalTooLow = 4,
+    /// <summary>
+    /// QPS limit exceeded
+    /// </summary>
+    easyar_CloudLocalizerStatus_QpsLimitExceeded = 5,
+} easyar_CloudLocalizerStatus;
 
-@class easyar_CloudLocalizeResult;
+@class easyar_CloudLocalizerBlockInstance;
+
+@class easyar_CloudLocalizerResult;
+
+@class easyar_DeviceAuxiliaryInfo;
 
 @class easyar_CloudLocalizer;
+
+@class easyar_MegaTrackerBlockInstance;
+
+@class easyar_MegaTrackerResult;
+
+typedef enum easyar_MegaTrackerLocalizationStatus : NSInteger
+{
+    /// <summary>
+    /// Unknown error
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_UnknownError = 0,
+    /// <summary>
+    /// A block is localized.
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_Found = 1,
+    /// <summary>
+    /// No blocks are localized.
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_NotFound = 2,
+    /// <summary>
+    /// Request time out (more than 1 minute)
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_RequestTimeout = 3,
+    /// <summary>
+    /// Request time interval is too low
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_RequestIntervalTooLow = 4,
+    /// <summary>
+    /// QPS limit exceeded
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_QpsLimitExceeded = 5,
+} easyar_MegaTrackerLocalizationStatus;
+
+@class easyar_MegaTrackerLocalizationResponse;
+
+@class easyar_MegaTracker;
 
 typedef enum easyar_CloudRecognizationStatus : NSInteger
 {
@@ -202,6 +264,12 @@ typedef enum easyar_PixelFormat : NSInteger
 
 @class easyar_Matrix33F;
 
+@class easyar_AccelerometerResult;
+
+@class easyar_LocationResult;
+
+@class easyar_ProximityLocationResult;
+
 @class easyar_Vec3D;
 
 @class easyar_Vec4F;
@@ -219,8 +287,6 @@ typedef enum easyar_PixelFormat : NSInteger
 @class easyar_BlockInfo;
 
 @class easyar_SceneMesh;
-
-@class easyar_AccelerometerResult;
 
 @class easyar_Accelerometer;
 
@@ -337,7 +403,7 @@ typedef enum easyar_CameraDevicePreference : NSInteger
     /// </summary>
     easyar_CameraDevicePreference_PreferSurfaceTracking = 1,
     /// <summary>
-    /// Optimized for Motion Tracking .
+    /// Optimized for Motion Tracking . But to use Motion Tracking, it is preferred to use `MotionTrackerCameraDevice`_ .
     /// </summary>
     easyar_CameraDevicePreference_PreferMotionTracking = 2,
 } easyar_CameraDevicePreference;
@@ -417,9 +483,13 @@ typedef enum easyar_MotionTrackerCameraDeviceTrackingMode : NSInteger
     /// </summary>
     easyar_MotionTrackerCameraDeviceTrackingMode_SLAM = 1,
     /// <summary>
-    /// Anchor is SLAM(Simultaneous tracking and mapping) with real time pose correction. CPU and memory usage are highest。Anchor supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
+    /// Anchor is SLAM(Simultaneous tracking and mapping) with real time pose correction. CPU and memory usage are highest. Anchor supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
     /// </summary>
     easyar_MotionTrackerCameraDeviceTrackingMode_Anchor = 2,
+    /// <summary>
+    /// LargeScale is SLAM(Simultaneous tracking and mapping) with real time pose correction in large scenes.Tracking is more stable at a large depth of field. LargeScale supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
+    /// </summary>
+    easyar_MotionTrackerCameraDeviceTrackingMode_LargeScale = 3,
 } easyar_MotionTrackerCameraDeviceTrackingMode;
 
 @class easyar_MotionTrackerCameraDevice;
@@ -692,6 +762,18 @@ typedef enum easyar_VideoType : NSInteger
 
 @class easyar_SignalSource;
 
+@class easyar_AccelerometerResultSink;
+
+@class easyar_AccelerometerResultSource;
+
+@class easyar_LocationResultSink;
+
+@class easyar_LocationResultSource;
+
+@class easyar_ProximityLocationResultSink;
+
+@class easyar_ProximityLocationResultSource;
+
 @class easyar_InputFrameSink;
 
 @class easyar_InputFrameSource;
@@ -721,6 +803,21 @@ typedef enum easyar_VideoType : NSInteger
 @class easyar_InputFrameToFeedbackFrameAdapter;
 
 @class easyar_InputFrame;
+
+/// <summary>
+/// Source type of input frames
+/// </summary>
+typedef enum easyar_InputFrameSourceType : NSInteger
+{
+    /// <summary>
+    /// general type, not optimized for a special system
+    /// </summary>
+    easyar_InputFrameSourceType_General = 0,
+    easyar_InputFrameSourceType_ARKit = 1,
+    easyar_InputFrameSourceType_ARCore = 2,
+    easyar_InputFrameSourceType_AREngine = 3,
+    easyar_InputFrameSourceType_MotionTracker = 4,
+} easyar_InputFrameSourceType;
 
 @class easyar_FrameFilterResult;
 
@@ -778,21 +875,13 @@ typedef enum easyar_StorageType : NSInteger
 typedef enum easyar_TargetStatus : NSInteger
 {
     /// <summary>
-    /// The status is unknown.
+    /// The target is not being tracking.
     /// </summary>
-    easyar_TargetStatus_Unknown = 0,
+    easyar_TargetStatus_NotTracking = 0,
     /// <summary>
-    /// The status is undefined.
+    /// The target is being tracking.
     /// </summary>
-    easyar_TargetStatus_Undefined = 1,
-    /// <summary>
-    /// The target is detected.
-    /// </summary>
-    easyar_TargetStatus_Detected = 2,
-    /// <summary>
-    /// The target is tracked.
-    /// </summary>
-    easyar_TargetStatus_Tracked = 3,
+    easyar_TargetStatus_Tracking = 1,
 } easyar_TargetStatus;
 
 @class easyar_TargetInstance;

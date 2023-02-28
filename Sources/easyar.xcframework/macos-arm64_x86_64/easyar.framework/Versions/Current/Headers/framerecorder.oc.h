@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -11,7 +11,7 @@
 
 /// <summary>
 /// Input frame recorder.
-/// There is an input frame input port and an input frame output port. It can be used to record input frames into an EIF file. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// There is an input frame input port and an input frame output port. It can be used to record input frames into an EIF file. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// All members of this class is thread-safe.
 /// </summary>
 @interface easyar_InputFrameRecorder : easyar_RefBase
@@ -48,7 +48,7 @@
 
 /// <summary>
 /// Input frame player.
-/// There is an input frame output port. It can be used to get input frame from an EIF file. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// There is an input frame output port. It can be used to get input frame from an EIF file. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// All members of this class is thread-safe.
 /// </summary>
 @interface easyar_InputFramePlayer : easyar_RefBase

@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -13,8 +13,8 @@
 /// CameraDevice implements a camera device, which outputs `InputFrame`_ (including image, camera paramters, and timestamp). It is available on Windows, Mac, Android and iOS.
 /// After open, start/stop can be invoked to start or stop data collection. start/stop will not change previous set camera parameters.
 /// When the component is not needed anymore, call close function to close it. It shall not be used after calling close.
-/// CameraDevice outputs `InputFrame`_ from inputFrameSource. inputFrameSource shall be connected to `InputFrameSink`_ for use. Refer to `Overview &lt;Overview.html&gt;`__ .
-/// bufferCapacity is the capacity of `InputFrame`_ buffer. If the count of `InputFrame`_ which has been output from the device and have not been released is more than this number, the device will not output new `InputFrame`_ , until previous `InputFrame`_ have been released. This may cause screen stuck. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// CameraDevice outputs `InputFrame`_ from inputFrameSource. inputFrameSource shall be connected to `InputFrameSink`_ for use. Refer to :doc:`Overview &lt;Overview&gt;` .
+/// bufferCapacity is the capacity of `InputFrame`_ buffer. If the count of `InputFrame`_ which has been output from the device and have not been released is more than this number, the device will not output new `InputFrame`_ , until previous `InputFrame`_ have been released. This may cause screen stuck. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// On Android, it is required to add android.permission.CAMERA to AndroidManifest.xml for use.
 /// On iOS, it is required to add NSCameraUsageDescription to Info.plist for use.
 /// </summary>
@@ -49,6 +49,10 @@
 /// `InputFrame`_ output port.
 /// </summary>
 - (easyar_InputFrameSource *)inputFrameSource;
+/// <summary>
+/// Source type of input frames.
+/// </summary>
+- (easyar_InputFrameSourceType)inputFrameSourceType;
 /// <summary>
 /// Sets callback on state change to notify state of camera disconnection or preemption. It is only available on Windows.
 /// </summary>

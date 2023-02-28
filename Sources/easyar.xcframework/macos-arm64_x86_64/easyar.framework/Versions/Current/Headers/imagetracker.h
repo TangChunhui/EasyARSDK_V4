@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -49,13 +49,19 @@ int easyar_ImageTracker_bufferRequirement(easyar_ImageTracker * This);
 /// </summary>
 void easyar_ImageTracker_outputFrameSource(easyar_ImageTracker * This, /* OUT */ easyar_OutputFrameSource * * Return);
 /// <summary>
-/// Creates an instance. The default track mode is `ImageTrackerMode.PreferQuality`_ .
+/// Creates an instance. The default track mode is `ImageTrackerMode`_.PreferQuality .
 /// </summary>
 void easyar_ImageTracker_create(/* OUT */ easyar_ImageTracker * * Return);
 /// <summary>
-/// Creates an instance with a specified track mode. On lower-end phones, `ImageTrackerMode.PreferPerformance`_ can be used to keep a better performance with a little quality loss.
+/// Creates an instance with a specified track mode. On lower-end phones, `ImageTrackerMode`_.PreferPerformance can be used to keep a better performance with a little quality loss.
 /// </summary>
 void easyar_ImageTracker_createWithMode(easyar_ImageTrackerMode trackMode, /* OUT */ easyar_ImageTracker * * Return);
+/// <summary>
+/// Sets result post-processing.
+/// enablePersistentTargetInstance defaults to false. When it is enabled and `InputFrame`_ contains spatial information, targetInstances in `ImageTrackerResult`_ will contain all recognized instances (with not tracking target instances).
+/// enableMotionFusion defaults to false. When it is enabled and `InputFrame`_ contains temporal information and spatial information, pose of targetInstances in `ImageTrackerResult`_ will utilize `RealTimeCoordinateTransform`_ .
+/// </summary>
+void easyar_ImageTracker_setResultPostProcessing(easyar_ImageTracker * This, bool enablePersistentTargetInstance, bool enableMotionFusion);
 /// <summary>
 /// Starts the track algorithm.
 /// </summary>

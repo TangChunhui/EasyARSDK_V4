@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -52,6 +52,12 @@ void easyar_ObjectTracker_outputFrameSource(easyar_ObjectTracker * This, /* OUT 
 /// Creates an instance.
 /// </summary>
 void easyar_ObjectTracker_create(/* OUT */ easyar_ObjectTracker * * Return);
+/// <summary>
+/// Sets result post-processing.
+/// enablePersistentTargetInstance defaults to false. When it is enabled and `InputFrame`_ contains spatial information, targetInstances in `ImageTrackerResult`_ will contain all recognized instances (with not tracking target instances).
+/// enableMotionFusion defaults to false. When it is enabled and `InputFrame`_ contains temporal information and spatial information, pose of targetInstances in `ImageTrackerResult`_ will utilize `RealTimeCoordinateTransform`_ .
+/// </summary>
+void easyar_ObjectTracker_setResultPostProcessing(easyar_ObjectTracker * This, bool enablePersistentTargetInstance, bool enableMotionFusion);
 /// <summary>
 /// Starts the track algorithm.
 /// </summary>

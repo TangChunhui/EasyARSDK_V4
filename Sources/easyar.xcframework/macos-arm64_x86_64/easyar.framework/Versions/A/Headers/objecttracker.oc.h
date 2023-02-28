@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -31,10 +31,10 @@
 
 /// <summary>
 /// ObjectTracker implements 3D object target detection and tracking.
-/// ObjectTracker occupies (1 + SimultaneousNum) buffers of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// ObjectTracker occupies (1 + SimultaneousNum) buffers of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// After creation, you can call start/stop to enable/disable the track process. start and stop are very lightweight calls.
 /// When the component is not needed anymore, call close function to close it. It shall not be used after calling close.
-/// ObjectTracker inputs `FeedbackFrame`_ from feedbackFrameSink. `FeedbackFrameSource`_ shall be connected to feedbackFrameSink for use. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// ObjectTracker inputs `FeedbackFrame`_ from feedbackFrameSink. `FeedbackFrameSource`_ shall be connected to feedbackFrameSink for use. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// Before a `Target`_ can be tracked by ObjectTracker, you have to load it using loadTarget/unloadTarget. You can get load/unload results from callbacks passed into the interfaces.
 /// </summary>
 @interface easyar_ObjectTracker : easyar_RefBase
@@ -62,6 +62,12 @@
 /// Creates an instance.
 /// </summary>
 + (easyar_ObjectTracker *)create;
+/// <summary>
+/// Sets result post-processing.
+/// enablePersistentTargetInstance defaults to false. When it is enabled and `InputFrame`_ contains spatial information, targetInstances in `ImageTrackerResult`_ will contain all recognized instances (with not tracking target instances).
+/// enableMotionFusion defaults to false. When it is enabled and `InputFrame`_ contains temporal information and spatial information, pose of targetInstances in `ImageTrackerResult`_ will utilize `RealTimeCoordinateTransform`_ .
+/// </summary>
+- (void)setResultPostProcessing:(bool)enablePersistentTargetInstance enableMotionFusion:(bool)enableMotionFusion;
 /// <summary>
 /// Starts the track algorithm.
 /// </summary>

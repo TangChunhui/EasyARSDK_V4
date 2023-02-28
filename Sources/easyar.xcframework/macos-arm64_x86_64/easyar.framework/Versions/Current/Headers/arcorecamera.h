@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -24,6 +24,10 @@ void easyar_ARCoreCameraDevice__ctor(/* OUT */ easyar_ARCoreCameraDevice * * Ret
 /// </summary>
 bool easyar_ARCoreCameraDevice_isAvailable(void);
 /// <summary>
+/// Checks if the current device is supported.
+/// </summary>
+bool easyar_ARCoreCameraDevice_isDeviceSupported(void);
+/// <summary>
 /// `InputFrame`_ buffer capacity. The default is 8.
 /// </summary>
 int easyar_ARCoreCameraDevice_bufferCapacity(const easyar_ARCoreCameraDevice * This);
@@ -35,6 +39,10 @@ void easyar_ARCoreCameraDevice_setBufferCapacity(easyar_ARCoreCameraDevice * Thi
 /// `InputFrame`_ output port.
 /// </summary>
 void easyar_ARCoreCameraDevice_inputFrameSource(easyar_ARCoreCameraDevice * This, /* OUT */ easyar_InputFrameSource * * Return);
+/// <summary>
+/// Source type of input frames.
+/// </summary>
+easyar_InputFrameSourceType easyar_ARCoreCameraDevice_inputFrameSourceType(easyar_ARCoreCameraDevice * This);
 /// <summary>
 /// Sets focus mode to focusMode. Call before start.
 /// </summary>

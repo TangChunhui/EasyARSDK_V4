@@ -6,1179 +6,922 @@
 	<dict>
 		<key>Headers/accelerometer.h</key>
 		<data>
-		up6A26gSlheXL4xatZTq66V9hxs=
+		gqosp8IBCi3mf8OXnM+DYWa3jrw=
 		</data>
 		<key>Headers/accelerometer.oc.h</key>
 		<data>
-		JVobZ/i6/zf5oxH8XOlqFisjfRI=
+		Lm/kHyiN7Y8z+N0kSn3b7h3peec=
 		</data>
 		<key>Headers/arcorecamera.h</key>
 		<data>
-		71j31MKVjyb5aXBz4vj5b3GVI+c=
+		+6HSF7kTYpBqRiBFEimGn9Q8OQI=
 		</data>
 		<key>Headers/arcorecamera.oc.h</key>
 		<data>
-		/pjRIvgQlmtZKCV4q2ag920vA1U=
+		pDBJN6QUGgfTWHA9h3oFHJGUE+Q=
+		</data>
+		<key>Headers/arcoredevicelist.h</key>
+		<data>
+		C8G4nncLHODgCEq1siuvFYla9Fk=
+		</data>
+		<key>Headers/arcoredevicelist.oc.h</key>
+		<data>
+		BB+7Qx14OcitZuM68bXTvk7uAr0=
 		</data>
 		<key>Headers/arkitcamera.h</key>
 		<data>
-		tnkuhVlaeu5PIbNbvlu94Mj22lw=
+		ibwRosMmoNTFk+C4z/HrXshhNCg=
 		</data>
 		<key>Headers/arkitcamera.oc.h</key>
 		<data>
-		njVyj4U23V5omolAuSEpFQIK+o4=
+		pKA2mOh4WRLgb6JthxHQ/luMT3Q=
 		</data>
 		<key>Headers/buffer.h</key>
 		<data>
-		EQ8OktDkAlO+uuO8A+8Rw7zc5A0=
+		aUBYHydayRyE3vY8L99ydtEHLIQ=
 		</data>
 		<key>Headers/buffer.oc.h</key>
 		<data>
-		mTl0OhpPtguVXjEkZf0NA/0aIYo=
+		gv9S14BEcn6OWN9g23oIQujatgA=
 		</data>
 		<key>Headers/bufferpool.h</key>
 		<data>
-		gOqgzqyr8toakucSGBNyDK2QSII=
+		qDmkiMAolhZaHsdj/Pz3T3DddyY=
 		</data>
 		<key>Headers/bufferpool.oc.h</key>
 		<data>
-		cqMG4T8BZ2ybTfYv7RKZXYPAR5Y=
+		2ApynzLY+eCQaMf9VdTM3XFp11w=
 		</data>
 		<key>Headers/calibration.h</key>
 		<data>
-		jtbXjSEya9UrMQxVVIHw+ghIYWA=
+		iK+p2vzDDiwjB/SyXCfoGg1hO2Y=
 		</data>
 		<key>Headers/calibration.oc.h</key>
 		<data>
-		nqmu+mbLmmwRFSovpu9hLchJ+9s=
+		VLQU6mYY5E5b0n1CIUkRtif+iNw=
 		</data>
 		<key>Headers/callbackscheduler.h</key>
 		<data>
-		5FMmB2T1K+eC/uoTvm2TQmZS554=
+		LvYjUSBxU3AOytRxfec7+0vIQNw=
 		</data>
 		<key>Headers/callbackscheduler.oc.h</key>
 		<data>
-		mLdmME4zxC3usNCZNoN4X+/MCHg=
+		kYkUj2t0nc0RrHRd64pdpMomYQw=
 		</data>
 		<key>Headers/camera.h</key>
 		<data>
-		3/lqXzwjohsbsktrfunsoGWTdzA=
+		cIp7GjEU22eR7NWd5iN9HT/lIa8=
 		</data>
 		<key>Headers/camera.oc.h</key>
 		<data>
-		ofc33L7lj5JOqCdb1dd/b+e5pS4=
+		jXrgmGEYBN+H0yvmFYQtB7YT/6I=
 		</data>
 		<key>Headers/cameraparameters.h</key>
 		<data>
-		To7AOWiekfhIyT92lvozEa1dVZU=
+		ZVqVhDe3DuJqHru5lpgR/gJIlXA=
 		</data>
 		<key>Headers/cameraparameters.oc.h</key>
 		<data>
-		MZlmj+Y4zuHeY2MgZjEZU0tYaoQ=
+		GdhsR0G5oRNmXXTBq9ubvniwhy0=
 		</data>
 		<key>Headers/cloudlocalize.h</key>
 		<data>
-		8wbSMliJ0iUY6rNn/MQ+RMi/7lY=
+		dURDDp1DDOUiZVhm8XhtyJlByxY=
 		</data>
 		<key>Headers/cloudlocalize.oc.h</key>
 		<data>
-		aLaKp4SG9y7DGapaFMLETgJ9fg4=
+		/Hz+IUIfLPMYcaZarNDytqxoPXA=
 		</data>
 		<key>Headers/cloudrecognizer.h</key>
 		<data>
-		HpzQDn6xpg+5zOtueta1M0ardC8=
+		xoObPbR77TlCz9/E/WGQmoEVnxg=
 		</data>
 		<key>Headers/cloudrecognizer.oc.h</key>
 		<data>
-		8mWtzW5SZLgcf78EWwgoQPqTx+8=
+		0OtHGTG3bGqDw1lRGMdf1vtWBE0=
 		</data>
 		<key>Headers/dataflow.h</key>
 		<data>
-		UlcmB3HQrdshxXy3VZ6qaLkmWWE=
+		xPp/CdfNidTAEitK/m7ccsYgyXE=
 		</data>
 		<key>Headers/dataflow.oc.h</key>
 		<data>
-		evf7dXYHz+h/iMkW1Vfrh1Y/Rag=
+		3ILm7KExdH81jsUmXvSNY9Br8oE=
 		</data>
 		<key>Headers/densespatialmap.h</key>
 		<data>
-		/V4aW3ZbwCHVJt8qMgco+GufO34=
+		ZPpdGk1WtbZvuUFQOMGeIgTTF8c=
 		</data>
 		<key>Headers/densespatialmap.oc.h</key>
 		<data>
-		ogAv/BQrRzfWEhRLL09XMQide68=
+		JMvlJW9YnY3LajqmobHiUVK+Nk4=
 		</data>
 		<key>Headers/engine.h</key>
 		<data>
-		mlG68PbA5425PBfzxXLtMQgoEQQ=
+		iyijofRFdlYB4gU9F/PlcIHGx/M=
 		</data>
 		<key>Headers/engine.oc.h</key>
 		<data>
-		LaIFJVmlPBWfeXOmLg6appF+QTw=
+		CBm6BXWJTzov/Iprbi1p5PmvAkI=
 		</data>
 		<key>Headers/frame.h</key>
 		<data>
-		e+1fF7+GiueDLNsWVkxvQNQLyAE=
+		K9ncfWZyrYOad3LzaBkUN1BOUU0=
 		</data>
 		<key>Headers/frame.oc.h</key>
 		<data>
-		NJkmoaTpC16mDOjwvtSQQwwUtvQ=
+		fAolYZZJ46S3xNWmyMQzYCYPdI8=
 		</data>
 		<key>Headers/framerecorder.h</key>
 		<data>
-		NL1Nt67DDbFZPukbVB4KeXg5ABQ=
+		54OZtilwIKiY9bmu6EtpKmKL6kI=
 		</data>
 		<key>Headers/framerecorder.oc.h</key>
 		<data>
-		W99hDCxJ1ELI3BklrCgOX9ZH80w=
+		uW16aKaDao7gshz1d2NdO3dJ4vg=
 		</data>
 		<key>Headers/image.h</key>
 		<data>
-		+ZepO8OEupiK5Rbc3O1ScqwVH8I=
+		sKR7YbmkOkyODqoEf4aSicXmGGI=
 		</data>
 		<key>Headers/image.oc.h</key>
 		<data>
-		ci1XaK1eNg4lg1Rg/WJq+7+SnqI=
+		yFpv6hKPfUQ1LE7OBly3hczmv5M=
 		</data>
 		<key>Headers/imagehelper.h</key>
 		<data>
-		pYtidd1SDzFukQODvO+xVH9O5EI=
+		7D5ZO7y+VxbksuXVt495bzkij+w=
 		</data>
 		<key>Headers/imagehelper.oc.h</key>
 		<data>
-		PqQ5U1BMiuka1nBj4ervWcUa2dQ=
+		IvZa56ufQanSvnjwogD6U/Hfk0c=
 		</data>
 		<key>Headers/imagetarget.h</key>
 		<data>
-		LowBxNS02wYbwTDTYvJNp+Yi3x0=
+		uxDOp463++UYh3H0FvACDhPftK8=
 		</data>
 		<key>Headers/imagetarget.oc.h</key>
 		<data>
-		1k83yJovhaWn6nHXE/AOcHOuups=
+		iOTgKTBMrONazqSnpONg0VpS4zE=
 		</data>
 		<key>Headers/imagetracker.h</key>
 		<data>
-		9RG/iOBDjoyHZv0gy5DrtXcAcgI=
+		p9AqUh+66doW6opTuObhw44RfHA=
 		</data>
 		<key>Headers/imagetracker.oc.h</key>
 		<data>
-		WxisJtYGtIhrvQGNPAaO/l0sBts=
+		gqXFV5pp9tvL+nSWr9/DbJYPZYs=
 		</data>
 		<key>Headers/jniutility.h</key>
 		<data>
-		paTmjt3oCyxumNbB6K0KdLCX5P4=
+		RDMoka0S1eOD26cZ4jxhyoGKoOQ=
 		</data>
 		<key>Headers/jniutility.oc.h</key>
 		<data>
-		1II1eOSolEvlwz9+G9JVJP0yq1c=
+		vANPHdWWyjFF5YJ+BRYidu9SKwI=
 		</data>
 		<key>Headers/log.h</key>
 		<data>
-		53tKXWt5NY/dHDTNNKfHeGYEr3Q=
+		uPJFElOP6Zy17HhqBphwxBNYKSM=
 		</data>
 		<key>Headers/log.oc.h</key>
 		<data>
-		clWHtQv6Z8T9YLJupwCDG/6J5VU=
+		IcYI4belHmdXhLD6qhq8dLhFJCU=
 		</data>
 		<key>Headers/magnetometer.oc.h</key>
 		<data>
-		zkHt+M2EYJ6UiDcvq7c1d1hCLNE=
+		N/olgPYi5+1VWZCSPU8s5b3lpmM=
 		</data>
 		<key>Headers/matrix.oc.h</key>
 		<data>
-		kh3fDk3FPhn/G1WsPOpBguFfkWY=
+		zv4WJFh3hZ0YGxsnFGfZScGEnMQ=
+		</data>
+		<key>Headers/megatracker.h</key>
+		<data>
+		KHXATx+RDhVlLJXrur7Fvka9QwQ=
+		</data>
+		<key>Headers/megatracker.oc.h</key>
+		<data>
+		xDAg9iz33uLAJR6ORePljrB0kN4=
 		</data>
 		<key>Headers/motiontracker.h</key>
 		<data>
-		TRI4LZw3mucRdIeaGrOzsINtni8=
+		F0GIJdo6jECf1spJxrAlC1o71Ow=
 		</data>
 		<key>Headers/motiontracker.oc.h</key>
 		<data>
-		W6WOwmuBDl3ZtD2HVA2Tnn0XMKo=
+		sreUYK5nwGQmdcwTZxf3ZjJX/Yc=
 		</data>
 		<key>Headers/objecttarget.h</key>
 		<data>
-		MhzIrNO22vqhfwdkol3/jD6XWB4=
+		Nl8jhp85j6xJKqKUpjPOnLPx3Y4=
 		</data>
 		<key>Headers/objecttarget.oc.h</key>
 		<data>
-		HkerZney7SANHOCK8fv/NR0R/rM=
+		XhCzH7gjZRu6EuXGZFe7bOG5YQg=
 		</data>
 		<key>Headers/objecttracker.h</key>
 		<data>
-		09w0aKmq0N+1fNR+pekaJ+o5XwY=
+		KQgQ/ZgDxyxcOgE1sy44gGCI5hY=
 		</data>
 		<key>Headers/objecttracker.oc.h</key>
 		<data>
-		1G/mQmiATQFuQmFWm0qDyYtznA8=
+		BczhOB4ZJV60vqxUW7z/BKzqK3c=
 		</data>
 		<key>Headers/realtimecoordinatetransform.h</key>
 		<data>
-		BADf/Oixut7rJbzTb2znJgWHtu4=
+		/w7cy6bwt3VxMuQcm0i3Ch6xDx4=
 		</data>
 		<key>Headers/realtimecoordinatetransform.oc.h</key>
 		<data>
-		u/mBWLUrozvuAtwCx3r4lx6D4I8=
+		x+ZIg9ZCbhdRYYUFZDD4DI0biaw=
 		</data>
 		<key>Headers/recorder.h</key>
 		<data>
-		xZdU2wNhlT3LVkut8eBdb6lLaEE=
+		e43aiQrOWEK0DYuZJzfDj7Vk6CE=
 		</data>
 		<key>Headers/recorder.oc.h</key>
 		<data>
-		zQoja9l+YtllPnhJEptisCf3i6w=
+		GEsrHPQfC5mUE26LSq6w8nzzwAQ=
 		</data>
 		<key>Headers/recorder_configuration.h</key>
 		<data>
-		4HeI9lY20/6PuugKbW1CZJF12lY=
+		6oQZG5Wb3liCnYMJdkE7RE++wqo=
 		</data>
 		<key>Headers/recorder_configuration.oc.h</key>
 		<data>
-		XbIaJKTyYIDGBjZ5090YZ86jnVc=
+		dlp6dJnK56VQS2PdRYZvlUlhTTs=
 		</data>
 		<key>Headers/scenemesh.h</key>
 		<data>
-		13KjjXrwXWFYp4RVMdf4xsnHObo=
+		k5mjQnpsWN9tkPDMUkurgnAPb78=
 		</data>
 		<key>Headers/scenemesh.oc.h</key>
 		<data>
-		No51HgczZsfvZ2sMT5OlyyG/VLY=
+		mE4tfDwm8IkRVvvqLY5mUvNdRMk=
+		</data>
+		<key>Headers/sensor.oc.h</key>
+		<data>
+		qO5nFP0y4e1WjOcHryStl7DwaaQ=
 		</data>
 		<key>Headers/sparsespatialmap.h</key>
 		<data>
-		chiXLQAcTO184Cbd0/RrE6NUWuA=
+		Vu4nmVS6zPvQ3QkPY0JH1+cV7ag=
 		</data>
 		<key>Headers/sparsespatialmap.oc.h</key>
 		<data>
-		pX8npexH3GTnEZLQoTov45cpK7U=
+		3fJVArHUcb4nEHNntcBm/sl4jKA=
 		</data>
 		<key>Headers/sparsespatialmapmanager.h</key>
 		<data>
-		g1kG+7Ne7kdyZsWZqAIsteTHj7E=
+		rHP9KLElCFwGeojtjhuCnmx75ag=
 		</data>
 		<key>Headers/sparsespatialmapmanager.oc.h</key>
 		<data>
-		xV74rKQYY+xgAaagTAQ0/A+oxco=
+		ouJtTupSK6NBDO4rEEyMLDDlrEo=
 		</data>
 		<key>Headers/storage.h</key>
 		<data>
-		elgh1f0oAZx0P7O0UfGeV+Hhavo=
+		6t0qhZDyt5wP4NAJfUduoC7EBBw=
 		</data>
 		<key>Headers/storage.oc.h</key>
 		<data>
-		isQeHwAVbRQDbm6wlMeMXrfA7qY=
+		bxeDrIr09QYiGM03Bn2VURUQx+0=
 		</data>
 		<key>Headers/surfacetracker.h</key>
 		<data>
-		+9MDDDapSFjq48Kk4NDyfFBMepI=
+		R1z9PVxTe5xxA62ckFCNQtJmEds=
 		</data>
 		<key>Headers/surfacetracker.oc.h</key>
 		<data>
-		pUMuJ4+O2i4JlIWix8cuiC3Ct7k=
+		E0Hqghht+Wph4w7f+rFUojhyjNs=
 		</data>
 		<key>Headers/target.h</key>
 		<data>
-		lTWE50aMV/n5b9udU/SBWcRpOHM=
+		c3yumpkvCbaVkyHZ2aat+oaw2xQ=
 		</data>
 		<key>Headers/target.oc.h</key>
 		<data>
-		czVnrXe94LWGJJF1E/Z9zINrnM0=
+		8LMJ/Yp2wHJbapZeWYNumN7vQWs=
 		</data>
 		<key>Headers/texture.h</key>
 		<data>
-		3grRrKtTLjcgYzKQnoX2KkuTW00=
+		vXUshtsLfLUv1/CHQXR7865fIX4=
 		</data>
 		<key>Headers/texture.oc.h</key>
 		<data>
-		Ha1zauJUlVAjbHf7RfPdh4rXgO0=
+		Jg71agQMC18T+esemv015kgYL20=
 		</data>
 		<key>Headers/types.h</key>
 		<data>
-		K1TScc15J3hdp29EYWNvHTQVioU=
+		FbHA+JVD0h2kJ9BUxiMdDC9JgAM=
 		</data>
 		<key>Headers/types.hpp</key>
 		<data>
-		AManNQRUTjcvYQJ0vlthc5H22Fo=
+		GiJ0tGaWJneMgBkxbgL04S+35m8=
 		</data>
 		<key>Headers/types.oc.h</key>
 		<data>
-		Kac2M6V5jxeaKVS6V0HJQHH5slw=
+		v3sV6vHEdU2W7VyuJUmxSgcLgNY=
 		</data>
 		<key>Headers/vector.oc.h</key>
 		<data>
-		90GupGC6Yr600SlpByWoBqgRzXY=
+		TOLzlbif4lCRUhNUkiWMOlgR1DE=
 		</data>
 		<key>Headers/videoplayer.h</key>
 		<data>
-		N/GIerMKYhWtOwxMNa75/KYjipY=
+		KYDutC1E6XIwY/66siW1YdAZWR8=
 		</data>
 		<key>Headers/videoplayer.oc.h</key>
 		<data>
-		KxB8ddCWUzIt4pRcx6LDj1etfZA=
+		GAzE4vvaZKiC37v2tiRTfv1FVDg=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		LZCB7BmqP1WJDV68xFbwoiViBm0=
+		7dLRrdOce6A5yrzTMFCz76L7Bx8=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>Headers/accelerometer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			up6A26gSlheXL4xatZTq66V9hxs=
-			</data>
 			<key>hash2</key>
 			<data>
-			AilifsqJ/xuOoGdzl00/c7LdQFskGZahpzq9p5EML94=
+			I3Pfd4j5bLtdxcos77jKoDra7zgNdXSJkc5DXB/bwr0=
 			</data>
 		</dict>
 		<key>Headers/accelerometer.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			JVobZ/i6/zf5oxH8XOlqFisjfRI=
-			</data>
 			<key>hash2</key>
 			<data>
-			ZNJv50pDkJsN4ymdUv1JwEPAAwUpWzaZ4rF2apFKfiQ=
+			3HW5PyUFmqbmIeda+zfia6kTS2nr03qEVKtddkExww8=
 			</data>
 		</dict>
 		<key>Headers/arcorecamera.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			71j31MKVjyb5aXBz4vj5b3GVI+c=
-			</data>
 			<key>hash2</key>
 			<data>
-			RpwErrp8ZsLMKlBlrVwTXJqvDJW18T8NLvpEStskrwQ=
+			RYtGcovME8iyd1bl/pulR0V3zz2ufez/yMo4GyA7qqk=
 			</data>
 		</dict>
 		<key>Headers/arcorecamera.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/pjRIvgQlmtZKCV4q2ag920vA1U=
-			</data>
 			<key>hash2</key>
 			<data>
-			PQRaZoCNGz9Gb9zl1zniCto95VWKrmBgti4034Skyx8=
+			Gwa/kiLys1tWjn6CgfjPsaae+6k1dLJNd3Anh7xWZmY=
+			</data>
+		</dict>
+		<key>Headers/arcoredevicelist.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			QySRwZXoWGLl71gmiYm/dkvAbPxxy+/0IXV+YE0KO3A=
+			</data>
+		</dict>
+		<key>Headers/arcoredevicelist.oc.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			M8XYKgH23AfiR4nOR+65A+yRh8bq+SRjJBuAhLPWxlI=
 			</data>
 		</dict>
 		<key>Headers/arkitcamera.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			tnkuhVlaeu5PIbNbvlu94Mj22lw=
-			</data>
 			<key>hash2</key>
 			<data>
-			oyPKD3rlQPseTimk9SKjG7vJkdNth54e/+1kWldVInU=
+			V8olizykTx41gxY6J9yTge5zBl/sJZwRlBgHksqUPTg=
 			</data>
 		</dict>
 		<key>Headers/arkitcamera.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			njVyj4U23V5omolAuSEpFQIK+o4=
-			</data>
 			<key>hash2</key>
 			<data>
-			WN+Z+p9Zdyrk3TXY46HOXsfPYe9AKyMrYtZ+aP7R4w0=
+			cm6N8h6Yxhoo2MAgHacddqeThwfJ2wOeNOa/LHzDaHM=
 			</data>
 		</dict>
 		<key>Headers/buffer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			EQ8OktDkAlO+uuO8A+8Rw7zc5A0=
-			</data>
 			<key>hash2</key>
 			<data>
-			bbHBjf9eJoSVcXczdTL0/PTWEcg11DOQn98n3oo48RY=
+			uC/vHhOtSOcd98czUKDYGAd4ySdock7lUGyj+ZP3bKM=
 			</data>
 		</dict>
 		<key>Headers/buffer.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mTl0OhpPtguVXjEkZf0NA/0aIYo=
-			</data>
 			<key>hash2</key>
 			<data>
-			PGcWUFihaAByOjxrx0dSQsfiLwx9bNuxUizZfnWS9+g=
+			3NCSgb5Vs94RJ18eCJHSrP2Xe4Ryni34PE1bHX+zPbU=
 			</data>
 		</dict>
 		<key>Headers/bufferpool.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			gOqgzqyr8toakucSGBNyDK2QSII=
-			</data>
 			<key>hash2</key>
 			<data>
-			k9SgZobAjWq0vpRJOiA5bVMmb4PIAb48tLJi1sg9+fI=
+			MXlobof+p1Q/lcdNQc4PE8we1k/LLPsOUkes3J0er5k=
 			</data>
 		</dict>
 		<key>Headers/bufferpool.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			cqMG4T8BZ2ybTfYv7RKZXYPAR5Y=
-			</data>
 			<key>hash2</key>
 			<data>
-			dklUFPBUX17r5QJsP1pBiGD3Q2e1kh2izYkz11CPuLM=
+			FWTEyBs0VGM92/m6AhSyROGs+lht2h6LxVsaesyHkas=
 			</data>
 		</dict>
 		<key>Headers/calibration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			jtbXjSEya9UrMQxVVIHw+ghIYWA=
-			</data>
 			<key>hash2</key>
 			<data>
-			Xez3hd0BS0219EK9NYBX2DcyZJIzuLEW/pgGVYr2tsM=
+			0xS7Xqm5GQppGJlC1/SuNM07fNlqjRKHQWAiaLa6WF0=
 			</data>
 		</dict>
 		<key>Headers/calibration.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			nqmu+mbLmmwRFSovpu9hLchJ+9s=
-			</data>
 			<key>hash2</key>
 			<data>
-			XgIzM41Zrp4z/iOIMISyvKc6dzkRvtI2xXQfDBP+MHY=
+			KPPY7NL31xpd531phllDycJL/NwK9ENa1SF49kiAUXw=
 			</data>
 		</dict>
 		<key>Headers/callbackscheduler.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			5FMmB2T1K+eC/uoTvm2TQmZS554=
-			</data>
 			<key>hash2</key>
 			<data>
-			WRkhRnHsfswV2g/emp19iGeS2sNHMhfOBtVhELWpu0k=
+			2z0hEribrnTYL3QWnSwFl7+0zBWy1esqUUNAnibnh6M=
 			</data>
 		</dict>
 		<key>Headers/callbackscheduler.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mLdmME4zxC3usNCZNoN4X+/MCHg=
-			</data>
 			<key>hash2</key>
 			<data>
-			nsRuiiPfU1NTMyyPpWSqCOdjt0TijrnoUxRc4sJ4sNU=
+			kTIxreDi1Whoq4vq8PB77O9tAkk3VVpnnBy3xohiXqY=
 			</data>
 		</dict>
 		<key>Headers/camera.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3/lqXzwjohsbsktrfunsoGWTdzA=
-			</data>
 			<key>hash2</key>
 			<data>
-			Y/SWjJuJYhn1rR7xOq1POevAEmupJG54/ms6L1V39Eo=
+			urgfjgxkrl7Hc9HYrhM6BrKEWfiEyIWmDSpHroUOEww=
 			</data>
 		</dict>
 		<key>Headers/camera.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ofc33L7lj5JOqCdb1dd/b+e5pS4=
-			</data>
 			<key>hash2</key>
 			<data>
-			tKacEPxa4fweHL73g+9KmcSNKZDj7IFE1Olybswz0CQ=
+			NHG07w9w/shdSeODPman32IhM8XNTJ98C64jVU9CBq4=
 			</data>
 		</dict>
 		<key>Headers/cameraparameters.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			To7AOWiekfhIyT92lvozEa1dVZU=
-			</data>
 			<key>hash2</key>
 			<data>
-			U29m1rBpdlwzxz7MCwAxr8rE6z7m+j0FQ1cRK2PPSHg=
+			k8tHRL1bJmhbUFS1LVBNDdS57xG8N1lVXQ55bTB0C58=
 			</data>
 		</dict>
 		<key>Headers/cameraparameters.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MZlmj+Y4zuHeY2MgZjEZU0tYaoQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			UCKhi/+zi/j5Z9CCpj+EJq04tXNtHt/oUxTwwzDjNLI=
+			tdrGGRg/r8pmTrJ0gO+W/jLAVtlhQF/4ahrm2BrHigk=
 			</data>
 		</dict>
 		<key>Headers/cloudlocalize.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8wbSMliJ0iUY6rNn/MQ+RMi/7lY=
-			</data>
 			<key>hash2</key>
 			<data>
-			3EUirDgqfNGY7hm8DFoLOneaE6w6MK8ff5qxhmIxoD8=
+			704dwsRtPtnTn9CKwnqxEKJHPC3x9AHBM8Ftagtlrac=
 			</data>
 		</dict>
 		<key>Headers/cloudlocalize.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			aLaKp4SG9y7DGapaFMLETgJ9fg4=
-			</data>
 			<key>hash2</key>
 			<data>
-			XobqQ7u9iaor8SRdgpFY0MGCofZsAdhsMyDUl44W+kM=
+			ikkdig2/eURCaOXIQK6P4xkc4uA7jT5hFgxaR2WXV3s=
 			</data>
 		</dict>
 		<key>Headers/cloudrecognizer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			HpzQDn6xpg+5zOtueta1M0ardC8=
-			</data>
 			<key>hash2</key>
 			<data>
-			cZPJtiFo8fFeI2/+TvDfMhl1/dgO3ThWAhZOLxmY/C4=
+			osNncr5WxCQnOd+G5pnb8whPaHZPacTYU+ovgoREsZM=
 			</data>
 		</dict>
 		<key>Headers/cloudrecognizer.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			8mWtzW5SZLgcf78EWwgoQPqTx+8=
-			</data>
 			<key>hash2</key>
 			<data>
-			hy+bruRrdlavmfy9Ws2MyTkmScckYrsTdNdPR8ocT/Y=
+			qFDFmjNjxVGhj3pTSXTdlDR6TKGFB++qgNsByOdbrmg=
 			</data>
 		</dict>
 		<key>Headers/dataflow.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			UlcmB3HQrdshxXy3VZ6qaLkmWWE=
-			</data>
 			<key>hash2</key>
 			<data>
-			fPZ6lNU90OpuI1C94zbWCk/Qut9sFpED4zhetY7mciM=
+			GVAQHcdmnw0AmjRPYGh5MDy63vJTevGhMhmUggzTsTc=
 			</data>
 		</dict>
 		<key>Headers/dataflow.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			evf7dXYHz+h/iMkW1Vfrh1Y/Rag=
-			</data>
 			<key>hash2</key>
 			<data>
-			bnfVPgCrT9amoke0iRtPOnHPTTF9yfAEu+BLUtj8WTE=
+			pDCSnClINvpCB2q3jxQP+QDvolnp4Ca4wFm87jJ/sfs=
 			</data>
 		</dict>
 		<key>Headers/densespatialmap.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			/V4aW3ZbwCHVJt8qMgco+GufO34=
-			</data>
 			<key>hash2</key>
 			<data>
-			b6k+gqcvSI6bRZzp+kGnD1qpITedYHmLb6QxByrVbsY=
+			gtg9A8xtrRfpek8dRkQ/pXUNjQTSOzw5E5tr2ALTQaI=
 			</data>
 		</dict>
 		<key>Headers/densespatialmap.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ogAv/BQrRzfWEhRLL09XMQide68=
-			</data>
 			<key>hash2</key>
 			<data>
-			HORrRNFHk34GGf4oB1err9ATJrLAhRdeSO5UewilKqw=
+			dEZpNLA3B09XSHEC3cCjKAIum511Mpj696rvCL87rJM=
 			</data>
 		</dict>
 		<key>Headers/engine.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			mlG68PbA5425PBfzxXLtMQgoEQQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			dMHN/GPkyDp09P6LAFJ5RYM1dsc5eulC9nBTaosO/fU=
+			Bq86jmWAWnVxwmz9SI5NbK9hnUr5YOyX1jxCB9hcOj0=
 			</data>
 		</dict>
 		<key>Headers/engine.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LaIFJVmlPBWfeXOmLg6appF+QTw=
-			</data>
 			<key>hash2</key>
 			<data>
-			vPjQBo8nsnkTvZVEpfJ9PMUH1IdndGplXny1VCRVpHs=
+			ok8uomaPZcRIiWjpsejwexfdzKmWbWiLHPlB5NVVbaU=
 			</data>
 		</dict>
 		<key>Headers/frame.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			e+1fF7+GiueDLNsWVkxvQNQLyAE=
-			</data>
 			<key>hash2</key>
 			<data>
-			dmuQV0ejgayuZW8HjGZH+OSh4JtZs5HmIklCYcdjAh4=
+			Irv87LIJFvjSLmdDliWdzhKSlfUTFoE5rW+p9WZL060=
 			</data>
 		</dict>
 		<key>Headers/frame.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NJkmoaTpC16mDOjwvtSQQwwUtvQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			F3Cp1pIbh+5B16REZaAUSkRkiKRt1DHUqar9i43//TM=
+			LbHMDoGxSNp8ZWDQq8w1KoOC9YxreI39Ny0KqT94HZw=
 			</data>
 		</dict>
 		<key>Headers/framerecorder.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			NL1Nt67DDbFZPukbVB4KeXg5ABQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			fxuIcNBLLey1mfEHKTW7+H/Af9pyXtl5YcnDLQocroI=
+			MInrUi0BylNxsO7OAG2VpR/SrYLRi3CdnyYFzWSA6vE=
 			</data>
 		</dict>
 		<key>Headers/framerecorder.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			W99hDCxJ1ELI3BklrCgOX9ZH80w=
-			</data>
 			<key>hash2</key>
 			<data>
-			C6Lb/xBmpXpXbcDjHjoD6iGtNBESPQpwfne+ljGRpYw=
+			5QJLjdB8Gz+VglTbo9bHx4sjp+jInC+c/2WT3x/TkLM=
 			</data>
 		</dict>
 		<key>Headers/image.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+ZepO8OEupiK5Rbc3O1ScqwVH8I=
-			</data>
 			<key>hash2</key>
 			<data>
-			fKOOjmUjqkVRssczmRmnlQeNX1EyTmKFgVzoMYJ4fmo=
+			+X9B7lV6+0DQDlrYUCZFZiBMZIQ+7ERgjWL8YiRJSpY=
 			</data>
 		</dict>
 		<key>Headers/image.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			ci1XaK1eNg4lg1Rg/WJq+7+SnqI=
-			</data>
 			<key>hash2</key>
 			<data>
-			VMuaBvHeNsYgdJAfKDjbBRJryi+xqyfSDLId+7vtSgc=
+			VKMLbcdYrvynX0MZ1VUy6wLoIcbxC4kL3m749HQAhNo=
 			</data>
 		</dict>
 		<key>Headers/imagehelper.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pYtidd1SDzFukQODvO+xVH9O5EI=
-			</data>
 			<key>hash2</key>
 			<data>
-			9zzAK9N7VER8zNCZUK+tJ9DxJzMWWSr4Th4CYqdKWNY=
+			uCAv2kCAWmBqNAsKRnhAvVkg+yiOJ3dlgV0kFoE3u4k=
 			</data>
 		</dict>
 		<key>Headers/imagehelper.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			PqQ5U1BMiuka1nBj4ervWcUa2dQ=
-			</data>
 			<key>hash2</key>
 			<data>
-			jl0qaGvtXblM1vqgqdiqA80iCswyMhHMVhn8GelUmsI=
+			ND8mQUmCH3RYUHFWXU3nAkeaJE7wrrT/KdOaj4Nc/m8=
 			</data>
 		</dict>
 		<key>Headers/imagetarget.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			LowBxNS02wYbwTDTYvJNp+Yi3x0=
-			</data>
 			<key>hash2</key>
 			<data>
-			4NmHU1G/x1BlnHfxdFZuqNlkjR+XjxDo/+HT6kI9K0E=
+			0ueaEZQ0Fp3wrlKCxX+7ivoaGra2ZIDczNaxTDq1hKA=
 			</data>
 		</dict>
 		<key>Headers/imagetarget.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1k83yJovhaWn6nHXE/AOcHOuups=
-			</data>
 			<key>hash2</key>
 			<data>
-			BPYvRc96iTxMGlZJ9xdtA9Do3vfml1B/Viki5EVRP8U=
+			n97KbIRLU7HnIjMdCI+HZtEOWTsT8KGvd+gpfjqIbA8=
 			</data>
 		</dict>
 		<key>Headers/imagetracker.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			9RG/iOBDjoyHZv0gy5DrtXcAcgI=
-			</data>
 			<key>hash2</key>
 			<data>
-			Q7VOfIsfF+cj+A8HGJS97mHvm8DKERYtV9Yey2SP76U=
+			6kPHg/QmELr7lShpU2G4butdqQbVKvyizCxnm3s2b3I=
 			</data>
 		</dict>
 		<key>Headers/imagetracker.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			WxisJtYGtIhrvQGNPAaO/l0sBts=
-			</data>
 			<key>hash2</key>
 			<data>
-			DRGE0PfDCAhH+LCKm2nBoGvKl+hYgFYWXnXhJSgj+5A=
+			mwfON5z9g/LXofte/F0l6kGjS/zlCHzqtEGMLDE1t30=
 			</data>
 		</dict>
 		<key>Headers/jniutility.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			paTmjt3oCyxumNbB6K0KdLCX5P4=
-			</data>
 			<key>hash2</key>
 			<data>
-			sjMopyrAwVLJm4p1WnkTgxIvZPc0zTED4D8+izyF0/U=
+			D9lU4zLzroBuvoRBl/HoRwqxv7f30ELO7b4oL7yy+L0=
 			</data>
 		</dict>
 		<key>Headers/jniutility.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1II1eOSolEvlwz9+G9JVJP0yq1c=
-			</data>
 			<key>hash2</key>
 			<data>
-			//PXhAb1w25bbnEmXNbeC2hc+07LAxdSkyetH01OtcA=
+			50B0Z3SPis1D7t6NMZKOuaU+uO6FcktZtbyAFuAffwQ=
 			</data>
 		</dict>
 		<key>Headers/log.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			53tKXWt5NY/dHDTNNKfHeGYEr3Q=
-			</data>
 			<key>hash2</key>
 			<data>
-			ssGEogm3ULyd8kdxL8fxtPdH5rJzAz5UgH0ErUr+oec=
+			HfwutmB3BpgyvamcaqG8K8VrvTxRe06nOBBWSAw1OBU=
 			</data>
 		</dict>
 		<key>Headers/log.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			clWHtQv6Z8T9YLJupwCDG/6J5VU=
-			</data>
 			<key>hash2</key>
 			<data>
-			6xbBruKSGyGToZGjO/K2Xotn6AGU8nmGbXhU+9R+I6Y=
+			L6FRH8nmLZh9ZR7ZNxKhGGUpfg3QKbWlg/4BcLw1QPY=
 			</data>
 		</dict>
 		<key>Headers/magnetometer.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zkHt+M2EYJ6UiDcvq7c1d1hCLNE=
-			</data>
 			<key>hash2</key>
 			<data>
-			swL5F0jFxRdkKKYzPpmyhfJXApaWMgVvvUp+y6PPVVM=
+			t2IgUB8u3OSGYuhN07F6g5clAlVq2tMO8eTOIwMRXZs=
 			</data>
 		</dict>
 		<key>Headers/matrix.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			kh3fDk3FPhn/G1WsPOpBguFfkWY=
-			</data>
 			<key>hash2</key>
 			<data>
-			P6Xy60JPrAui3+4zwF8xXBTikxjWwOBR2mXaQHpyXdc=
+			BhaUZgekKWlb9k1AyAs8S/BaEuCAufmOvYHZt3RbxjI=
+			</data>
+		</dict>
+		<key>Headers/megatracker.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			kisQfWDvqZcyTPkyWGa9Rpx2Eo5GI7MHyUJ6qwPAq6g=
+			</data>
+		</dict>
+		<key>Headers/megatracker.oc.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			A3qYhBc9Du3N5KePUGHwbl0S6JT4KAQHZiNT1NcDm98=
 			</data>
 		</dict>
 		<key>Headers/motiontracker.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			TRI4LZw3mucRdIeaGrOzsINtni8=
-			</data>
 			<key>hash2</key>
 			<data>
-			trwjyxPbWeyiPmcGIOkj/mWcs2zCW7wbQhcOgDG6gC4=
+			VdxlsjCr9IrDPg0/J6TWvlKUV9ugY1k270/B+0AyS6s=
 			</data>
 		</dict>
 		<key>Headers/motiontracker.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			W6WOwmuBDl3ZtD2HVA2Tnn0XMKo=
-			</data>
 			<key>hash2</key>
 			<data>
-			JBvSIkIbLBZia4/cr+rV/Tlw2cnKkpERc+Tz6lv/4b0=
+			kPe+r7Kiz5YOzDl+g6nqg/NcJt4W1p6Z2veorStIrhA=
 			</data>
 		</dict>
 		<key>Headers/objecttarget.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			MhzIrNO22vqhfwdkol3/jD6XWB4=
-			</data>
 			<key>hash2</key>
 			<data>
-			JPojxbMMfJTlcsUnofWg5P0qLLl3SFgZOFvV35b5v3k=
+			j0OeHHk0i6QHAv1Bpt3INjvDmeXLmYJsMNAt/XdHMLs=
 			</data>
 		</dict>
 		<key>Headers/objecttarget.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			HkerZney7SANHOCK8fv/NR0R/rM=
-			</data>
 			<key>hash2</key>
 			<data>
-			88XFqWYQYeA68OjBoNbPsA5t0wb4sK0HE+3Epa8ntmE=
+			N1gLtK4NNEfwdFdwCqMsGxoQTveoOFNqEqm6kSl1txE=
 			</data>
 		</dict>
 		<key>Headers/objecttracker.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			09w0aKmq0N+1fNR+pekaJ+o5XwY=
-			</data>
 			<key>hash2</key>
 			<data>
-			9/Q3i4c6uNGm+AU69XaqBVOITQ4hkHRnd76Vz9Q5GCY=
+			HOnuX5KS13LNUWLV2ft8QASKXnRC19oLiwvBM4o52JY=
 			</data>
 		</dict>
 		<key>Headers/objecttracker.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			1G/mQmiATQFuQmFWm0qDyYtznA8=
-			</data>
 			<key>hash2</key>
 			<data>
-			Gi+L5h5D9zQoqwBvoKAc4M5ll+mU/Pw95KaPu7WeFGg=
+			JOkpxXMgo57KP+N/J8NVjvK9Nqjl/ipLhdCpyVb+d10=
 			</data>
 		</dict>
 		<key>Headers/realtimecoordinatetransform.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			BADf/Oixut7rJbzTb2znJgWHtu4=
-			</data>
 			<key>hash2</key>
 			<data>
-			77DNBAKuZTZw4Lq+SrpwOjhYUZUD0oO7SRroMzCuz1U=
+			zEF+3dyvPaIfI3KH4lmH1AWHbUXMuESc+yr0ceokImQ=
 			</data>
 		</dict>
 		<key>Headers/realtimecoordinatetransform.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			u/mBWLUrozvuAtwCx3r4lx6D4I8=
-			</data>
 			<key>hash2</key>
 			<data>
-			99G+4M9LVtgJeVIeLydjk+mFdMvN1wclOJx8EEfguKE=
+			zTY4NyN1hgMhE8uNWqZoOcmgkM43YWG4OwFdSqL5FiE=
 			</data>
 		</dict>
 		<key>Headers/recorder.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xZdU2wNhlT3LVkut8eBdb6lLaEE=
-			</data>
 			<key>hash2</key>
 			<data>
-			+ZGeYNuGQ9+2gvKOJL8pV+ZuHkdAKLcCEKHq2DEJ3is=
+			Z8tmrEdOvO145qhzDj8TPFJvZ8UTahsZAflZBmtka0Q=
 			</data>
 		</dict>
 		<key>Headers/recorder.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			zQoja9l+YtllPnhJEptisCf3i6w=
-			</data>
 			<key>hash2</key>
 			<data>
-			/mJijMm4gQUCAV6cZIq47MS3w+4kWyx/XharRQaWPcs=
+			qh+tk4YocoUBCWAc5zxuP0juQPfwbQa8fWl1mwsU5Bg=
 			</data>
 		</dict>
 		<key>Headers/recorder_configuration.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			4HeI9lY20/6PuugKbW1CZJF12lY=
-			</data>
 			<key>hash2</key>
 			<data>
-			p6yxLiHMgrSg3K2wnF1lY5zqeDRGRVzOzcJpBPKAZjU=
+			tYxWApK8+AVPbah1MDqdxfUv6bdVYrS+ycKgIt7QhmI=
 			</data>
 		</dict>
 		<key>Headers/recorder_configuration.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			XbIaJKTyYIDGBjZ5090YZ86jnVc=
-			</data>
 			<key>hash2</key>
 			<data>
-			7ddxKFXUd4XIPpnx7fa61VSaRblNtXFIAPNxiK3qpsI=
+			krxsU/O057xNUfVgf/fvK+Frx5oAuJwvN8tjniTPVKY=
 			</data>
 		</dict>
 		<key>Headers/scenemesh.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			13KjjXrwXWFYp4RVMdf4xsnHObo=
-			</data>
 			<key>hash2</key>
 			<data>
-			G5kIoXyc+2d4kvAp7aaZab3k+xkMW88NbGWzDq//yk4=
+			c5pajAm9OCyOOULloqXw/SVMSXJFhrHAGN+T6fAkBB0=
 			</data>
 		</dict>
 		<key>Headers/scenemesh.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			No51HgczZsfvZ2sMT5OlyyG/VLY=
-			</data>
 			<key>hash2</key>
 			<data>
-			Vp9TTWbLLxbiEK/Z5ji8US1cy5StSSfXCbQGMExJ/rw=
+			/CGXhJYRXenvKER6C6MsEHGBeLcq1A6Gv73Mc1gO1ek=
+			</data>
+		</dict>
+		<key>Headers/sensor.oc.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			K+ht3Ppcf5ad01gvasmqzhWTWppQcicgz94DNoMm61Y=
 			</data>
 		</dict>
 		<key>Headers/sparsespatialmap.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			chiXLQAcTO184Cbd0/RrE6NUWuA=
-			</data>
 			<key>hash2</key>
 			<data>
-			LlaVmLu5R13nUEcgtUn/0u8yGWw4V152uGdbUmfO6+E=
+			Ter+jfTCNpQNmqPYamQZzqcHaskhnPgzFLtHoae8yV8=
 			</data>
 		</dict>
 		<key>Headers/sparsespatialmap.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pX8npexH3GTnEZLQoTov45cpK7U=
-			</data>
 			<key>hash2</key>
 			<data>
-			VhiW3v05m8y4RZExFoqe0HEAxwQrfTR6ZYEoS7wTPYo=
+			s+c33CFKE9BPnqRFFbDe6CwI4Dhr3N6mJQkw6baZIBA=
 			</data>
 		</dict>
 		<key>Headers/sparsespatialmapmanager.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			g1kG+7Ne7kdyZsWZqAIsteTHj7E=
-			</data>
 			<key>hash2</key>
 			<data>
-			g0qOCfODFzD4XsgV1NYn/jbuFGTgZpko9oSnn/Az/nk=
+			bSZ19olJBYTlpO3OmiXaU4rrdZwMQ2JkE0/jx/PrJ3E=
 			</data>
 		</dict>
 		<key>Headers/sparsespatialmapmanager.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			xV74rKQYY+xgAaagTAQ0/A+oxco=
-			</data>
 			<key>hash2</key>
 			<data>
-			NE8u/JSBkq5EFGq7GjNPs745JcP+50bFRvjSfWpZXgE=
+			Ib0nYLegGFMHQGkvSB22vzTG5mG3G4ilnsZ0SuAxFb8=
 			</data>
 		</dict>
 		<key>Headers/storage.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			elgh1f0oAZx0P7O0UfGeV+Hhavo=
-			</data>
 			<key>hash2</key>
 			<data>
-			OnvVCS7aothN9jKSO2E5oenchd0yVX8vBkoUYMDjW3g=
+			/1kWzpDaljgPT7VFH/puarAIE8lrJBW0C3jEOr13/pY=
 			</data>
 		</dict>
 		<key>Headers/storage.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			isQeHwAVbRQDbm6wlMeMXrfA7qY=
-			</data>
 			<key>hash2</key>
 			<data>
-			JEWzJtUYOtKCo614YlhFHg+WMGSZyeNOyPeTuVITdGc=
+			dGRnVf7CECS+2pGFpwEUFHG51ZB+e+a8C2MdDsor9yE=
 			</data>
 		</dict>
 		<key>Headers/surfacetracker.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			+9MDDDapSFjq48Kk4NDyfFBMepI=
-			</data>
 			<key>hash2</key>
 			<data>
-			deTBvLpvEu2Cu9/e5GrGJYaQUJaXYef3S5y/PlqP9PE=
+			M6NqUFaxQFgc8ACaI90DwNB34/HSGZgopgrKT1P4PL8=
 			</data>
 		</dict>
 		<key>Headers/surfacetracker.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			pUMuJ4+O2i4JlIWix8cuiC3Ct7k=
-			</data>
 			<key>hash2</key>
 			<data>
-			AaYUOuEAjsjcDZ+GpAfYDXrfNQoYjyOCQrJUy1vxyjo=
+			IR6tZjV5gfSEkRJiQXDKIc+rYOPg3lUZtjr5xPCcNuA=
 			</data>
 		</dict>
 		<key>Headers/target.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			lTWE50aMV/n5b9udU/SBWcRpOHM=
-			</data>
 			<key>hash2</key>
 			<data>
-			MEEUdLeA8uu6XmUVeCtx5A9SJJvtXZkv0ggxv3TjYJY=
+			Yuh/kQxVDoZq+uTj4BCCoTaob5Q+A3z4sl1aKz6qc/M=
 			</data>
 		</dict>
 		<key>Headers/target.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			czVnrXe94LWGJJF1E/Z9zINrnM0=
-			</data>
 			<key>hash2</key>
 			<data>
-			3jqMm9zdIYp/u/DgcvLaJ9UI98w7eWYiewSQ6o0CZso=
+			b+Ye9otTBGDFj/Lv6QbygixUrktRbvj3DWDd1ZLrCos=
 			</data>
 		</dict>
 		<key>Headers/texture.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			3grRrKtTLjcgYzKQnoX2KkuTW00=
-			</data>
 			<key>hash2</key>
 			<data>
-			TzI4R9DBuO7wyTEm6qlH5SSDuvAxtNMS6Uyyq8/YW4M=
+			qxGvbw/17/7zlx7dh5hz7kdnWSZWoOv5x5jg/S1zlEk=
 			</data>
 		</dict>
 		<key>Headers/texture.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Ha1zauJUlVAjbHf7RfPdh4rXgO0=
-			</data>
 			<key>hash2</key>
 			<data>
-			gIZ/JRg2zfIU1L2Lx0y+xWkRsioGBmB7ho5v0WZMxzU=
+			y7UimQ2jx/lGic0Wszy3nzNh0wdJvuUqa6zu6q0Af8k=
 			</data>
 		</dict>
 		<key>Headers/types.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			K1TScc15J3hdp29EYWNvHTQVioU=
-			</data>
 			<key>hash2</key>
 			<data>
-			qx8xz7rnodU6tmj3O1ZI7c4R4hl5VTsNT+VbY8qVLew=
+			xPdqubbAfq6Rcgo0VjE9vwi04u+mg77AOJLNANHQveo=
 			</data>
 		</dict>
 		<key>Headers/types.hpp</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			AManNQRUTjcvYQJ0vlthc5H22Fo=
-			</data>
 			<key>hash2</key>
 			<data>
-			0/FLUwkycI3Qx7dVYOSAoouQYmM3n88LJVeCn16AWWM=
+			Pp+LweUiNB7EtwmbH/7FncvHKfxNeY3BOnSb9PS2dVk=
 			</data>
 		</dict>
 		<key>Headers/types.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			Kac2M6V5jxeaKVS6V0HJQHH5slw=
-			</data>
 			<key>hash2</key>
 			<data>
-			1pFLpVndZg8r7pF4SMJVdAyP52lsYK1oHW/8S1YeQ2s=
+			9yQx2viMunZmj7P1cVIruZ3U2aytgdPkr2Hvo8cOkB4=
 			</data>
 		</dict>
 		<key>Headers/vector.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			90GupGC6Yr600SlpByWoBqgRzXY=
-			</data>
 			<key>hash2</key>
 			<data>
-			U8aWpmDUMvXugxit9ILCRmPKZqTwBhz1diAIfc090LM=
+			jYl7Bj7FNUCm3LQwy72yb6uWCG8eehtDqaoSn/pczeU=
 			</data>
 		</dict>
 		<key>Headers/videoplayer.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			N/GIerMKYhWtOwxMNa75/KYjipY=
-			</data>
 			<key>hash2</key>
 			<data>
-			WlpwWYoWm0ujMyKqYAfuo/ssDmc8Ubtvqcrv5YKTrbM=
+			rkYZ/pIB1x/jd6d+ktbozVL/fI/v2NM247P+0ISkwZk=
 			</data>
 		</dict>
 		<key>Headers/videoplayer.oc.h</key>
 		<dict>
-			<key>hash</key>
-			<data>
-			KxB8ddCWUzIt4pRcx6LDj1etfZA=
-			</data>
 			<key>hash2</key>
 			<data>
-			yq6B8q2ReMAR6IoYPjw50ZTbkBCHURHSCpOkY57W6zo=
+			9VM3VxVq1Qll4Kkm9kmeLKf9AVYjG8XcqDJ/O/kH2SI=
 			</data>
 		</dict>
 	</dict>

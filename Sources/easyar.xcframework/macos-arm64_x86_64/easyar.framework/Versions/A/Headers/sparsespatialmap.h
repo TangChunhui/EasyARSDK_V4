@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -105,6 +105,10 @@ void easyar_SparseSpatialMap_outputFrameSource(easyar_SparseSpatialMap * This, /
 /// Construct SparseSpatialMap.
 /// </summary>
 void easyar_SparseSpatialMap_create(/* OUT */ easyar_SparseSpatialMap * * Return);
+/// <summary>
+/// Sets type of result pose. enableStabilization defaults to false. It only takes effect when `InputFrame`_ contains spatial information.
+/// </summary>
+void easyar_SparseSpatialMap_setResultPoseType(easyar_SparseSpatialMap * This, bool enableStabilization);
 /// <summary>
 /// Start SparseSpatialMap system.
 /// </summary>

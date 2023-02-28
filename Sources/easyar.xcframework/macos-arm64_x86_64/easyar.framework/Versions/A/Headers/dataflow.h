@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -39,6 +39,78 @@ void easyar_SignalSource_disconnect(easyar_SignalSource * This);
 void easyar_SignalSource__dtor(easyar_SignalSource * This);
 void easyar_SignalSource__retain(const easyar_SignalSource * This, /* OUT */ easyar_SignalSource * * Return);
 const char * easyar_SignalSource__typeName(const easyar_SignalSource * This);
+
+/// <summary>
+/// Input data.
+/// </summary>
+void easyar_AccelerometerResultSink_handle(easyar_AccelerometerResultSink * This, easyar_AccelerometerResult inputData);
+void easyar_AccelerometerResultSink__dtor(easyar_AccelerometerResultSink * This);
+void easyar_AccelerometerResultSink__retain(const easyar_AccelerometerResultSink * This, /* OUT */ easyar_AccelerometerResultSink * * Return);
+const char * easyar_AccelerometerResultSink__typeName(const easyar_AccelerometerResultSink * This);
+
+/// <summary>
+/// Sets data handler.
+/// </summary>
+void easyar_AccelerometerResultSource_setHandler(easyar_AccelerometerResultSource * This, easyar_OptionalOfFunctorOfVoidFromAccelerometerResult handler);
+/// <summary>
+/// Connects to input port.
+/// </summary>
+void easyar_AccelerometerResultSource_connect(easyar_AccelerometerResultSource * This, easyar_AccelerometerResultSink * sink);
+/// <summary>
+/// Disconnects.
+/// </summary>
+void easyar_AccelerometerResultSource_disconnect(easyar_AccelerometerResultSource * This);
+void easyar_AccelerometerResultSource__dtor(easyar_AccelerometerResultSource * This);
+void easyar_AccelerometerResultSource__retain(const easyar_AccelerometerResultSource * This, /* OUT */ easyar_AccelerometerResultSource * * Return);
+const char * easyar_AccelerometerResultSource__typeName(const easyar_AccelerometerResultSource * This);
+
+/// <summary>
+/// Input data.
+/// </summary>
+void easyar_LocationResultSink_handle(easyar_LocationResultSink * This, easyar_LocationResult inputData);
+void easyar_LocationResultSink__dtor(easyar_LocationResultSink * This);
+void easyar_LocationResultSink__retain(const easyar_LocationResultSink * This, /* OUT */ easyar_LocationResultSink * * Return);
+const char * easyar_LocationResultSink__typeName(const easyar_LocationResultSink * This);
+
+/// <summary>
+/// Sets data handler.
+/// </summary>
+void easyar_LocationResultSource_setHandler(easyar_LocationResultSource * This, easyar_OptionalOfFunctorOfVoidFromLocationResult handler);
+/// <summary>
+/// Connects to input port.
+/// </summary>
+void easyar_LocationResultSource_connect(easyar_LocationResultSource * This, easyar_LocationResultSink * sink);
+/// <summary>
+/// Disconnects.
+/// </summary>
+void easyar_LocationResultSource_disconnect(easyar_LocationResultSource * This);
+void easyar_LocationResultSource__dtor(easyar_LocationResultSource * This);
+void easyar_LocationResultSource__retain(const easyar_LocationResultSource * This, /* OUT */ easyar_LocationResultSource * * Return);
+const char * easyar_LocationResultSource__typeName(const easyar_LocationResultSource * This);
+
+/// <summary>
+/// Input data.
+/// </summary>
+void easyar_ProximityLocationResultSink_handle(easyar_ProximityLocationResultSink * This, easyar_ProximityLocationResult inputData);
+void easyar_ProximityLocationResultSink__dtor(easyar_ProximityLocationResultSink * This);
+void easyar_ProximityLocationResultSink__retain(const easyar_ProximityLocationResultSink * This, /* OUT */ easyar_ProximityLocationResultSink * * Return);
+const char * easyar_ProximityLocationResultSink__typeName(const easyar_ProximityLocationResultSink * This);
+
+/// <summary>
+/// Sets data handler.
+/// </summary>
+void easyar_ProximityLocationResultSource_setHandler(easyar_ProximityLocationResultSource * This, easyar_OptionalOfFunctorOfVoidFromProximityLocationResult handler);
+/// <summary>
+/// Connects to input port.
+/// </summary>
+void easyar_ProximityLocationResultSource_connect(easyar_ProximityLocationResultSource * This, easyar_ProximityLocationResultSink * sink);
+/// <summary>
+/// Disconnects.
+/// </summary>
+void easyar_ProximityLocationResultSource_disconnect(easyar_ProximityLocationResultSource * This);
+void easyar_ProximityLocationResultSource__dtor(easyar_ProximityLocationResultSource * This);
+void easyar_ProximityLocationResultSource__retain(const easyar_ProximityLocationResultSource * This, /* OUT */ easyar_ProximityLocationResultSource * * Return);
+const char * easyar_ProximityLocationResultSource__typeName(const easyar_ProximityLocationResultSource * This);
 
 /// <summary>
 /// Input data.

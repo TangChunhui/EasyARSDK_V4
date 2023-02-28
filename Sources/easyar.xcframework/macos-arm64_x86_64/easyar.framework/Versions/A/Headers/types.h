@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -51,13 +51,39 @@ typedef struct { char _placeHolder_; } easyar_ObjectTrackerResult;
 /// <summary>
 /// class
 /// ObjectTracker implements 3D object target detection and tracking.
-/// ObjectTracker occupies (1 + SimultaneousNum) buffers of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// ObjectTracker occupies (1 + SimultaneousNum) buffers of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// After creation, you can call start/stop to enable/disable the track process. start and stop are very lightweight calls.
 /// When the component is not needed anymore, call close function to close it. It shall not be used after calling close.
-/// ObjectTracker inputs `FeedbackFrame`_ from feedbackFrameSink. `FeedbackFrameSource`_ shall be connected to feedbackFrameSink for use. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// ObjectTracker inputs `FeedbackFrame`_ from feedbackFrameSink. `FeedbackFrameSource`_ shall be connected to feedbackFrameSink for use. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// Before a `Target`_ can be tracked by ObjectTracker, you have to load it using loadTarget/unloadTarget. You can get load/unload results from callbacks passed into the interfaces.
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_ObjectTracker;
+
+typedef enum
+{
+    /// <summary>
+    /// Download successful.
+    /// </summary>
+    easyar_ARCoreDeviceListDownloadStatus_Successful = 0,
+    /// <summary>
+    /// Data is already latest.
+    /// </summary>
+    easyar_ARCoreDeviceListDownloadStatus_NotModified = 1,
+    /// <summary>
+    /// Connection error
+    /// </summary>
+    easyar_ARCoreDeviceListDownloadStatus_ConnectionError = 2,
+    /// <summary>
+    /// Unexpected error
+    /// </summary>
+    easyar_ARCoreDeviceListDownloadStatus_UnexpectedError = 3,
+} easyar_ARCoreDeviceListDownloadStatus;
+
+/// <summary>
+/// class
+/// ARCoreDeviceListDownloader is used for download and update of device list data in ARCoreCameraDevice.
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_ARCoreDeviceListDownloader;
 
 typedef enum
 {
@@ -88,42 +114,106 @@ typedef struct { char _placeHolder_; } easyar_CalibrationDownloader;
 typedef enum
 {
     /// <summary>
-    /// Spatial maps are localized.
+    /// Unknown error
     /// </summary>
-    easyar_CloudLocalizeStatus_FoundMaps = 0,
+    easyar_CloudLocalizerStatus_UnknownError = 0,
     /// <summary>
-    /// No spatial maps are localized.
+    /// A block is localized.
     /// </summary>
-    easyar_CloudLocalizeStatus_MapsNotFound = 1,
+    easyar_CloudLocalizerStatus_Found = 1,
     /// <summary>
-    /// Protocol error
+    /// No blocks are localized.
     /// </summary>
-    easyar_CloudLocalizeStatus_ProtocolError = 2,
-    /// <summary>
-    /// Exception caught
-    /// </summary>
-    easyar_CloudLocalizeStatus_ExceptionCaught = 3,
+    easyar_CloudLocalizerStatus_NotFound = 2,
     /// <summary>
     /// Request time out (more than 1 minute)
     /// </summary>
-    easyar_CloudLocalizeStatus_RequestTimeout = 4,
+    easyar_CloudLocalizerStatus_RequestTimeout = 3,
     /// <summary>
     /// Request time interval is too low
     /// </summary>
-    easyar_CloudLocalizeStatus_RequestIntervalTooLow = 5,
-} easyar_CloudLocalizeStatus;
+    easyar_CloudLocalizerStatus_RequestIntervalTooLow = 4,
+    /// <summary>
+    /// QPS limit exceeded
+    /// </summary>
+    easyar_CloudLocalizerStatus_QpsLimitExceeded = 5,
+} easyar_CloudLocalizerStatus;
 
 /// <summary>
 /// class
-/// extends FrameFilterResult
+/// The block instance localized by MegaTracker.
 /// </summary>
-typedef struct { char _placeHolder_; } easyar_CloudLocalizeResult;
+typedef struct { char _placeHolder_; } easyar_CloudLocalizerBlockInstance;
+
+/// <summary>
+/// class
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_CloudLocalizerResult;
+
+/// <summary>
+/// class
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_DeviceAuxiliaryInfo;
 
 /// <summary>
 /// class
 /// CloudLocalizer implements cloud based localization.
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_CloudLocalizer;
+
+/// <summary>
+/// class
+/// The block instance localized by MegaTracker.
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_MegaTrackerBlockInstance;
+
+/// <summary>
+/// class
+/// extends FrameFilterResult
+/// The result of MegaTracker. Updated at the same frame rate with OutputFrame.
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_MegaTrackerResult;
+
+typedef enum
+{
+    /// <summary>
+    /// Unknown error
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_UnknownError = 0,
+    /// <summary>
+    /// A block is localized.
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_Found = 1,
+    /// <summary>
+    /// No blocks are localized.
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_NotFound = 2,
+    /// <summary>
+    /// Request time out (more than 1 minute)
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_RequestTimeout = 3,
+    /// <summary>
+    /// Request time interval is too low
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_RequestIntervalTooLow = 4,
+    /// <summary>
+    /// QPS limit exceeded
+    /// </summary>
+    easyar_MegaTrackerLocalizationStatus_QpsLimitExceeded = 5,
+} easyar_MegaTrackerLocalizationStatus;
+
+/// <summary>
+/// class
+/// The response of MegaTracker localization request.
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_MegaTrackerLocalizationResponse;
+
+/// <summary>
+/// class
+/// Provides cloud based localization.
+/// MegaTracker occupies 1 buffers of camera.
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_MegaTracker;
 
 typedef enum
 {
@@ -339,6 +429,66 @@ typedef struct
 
 /// <summary>
 /// record
+/// Accelerometer reading.
+///
+/// The positive direction of x-axis is from the device center to its right side of the screen.
+/// The positive direction of y-axis is from the device center to its top side of the screen.
+/// The positive direction of z-axis is from the device center perpendicular to the screen outward.
+///
+/// The unit of x, y, z is m/s^2.
+/// The unit of timestamp is second.
+/// </summary>
+typedef struct
+{
+    float x;
+    float y;
+    float z;
+    double timestamp;
+} easyar_AccelerometerResult;
+
+/// <summary>
+/// record
+/// Location reading.
+///
+/// The unit of latitude, longitude is meter.
+/// The unit of altitude is meter.
+/// The unit of horizontalAccuracy is meter.
+/// verticalAccuracy is the accuracy in the direction of gravity of earth, and its unit is meter.
+/// </summary>
+typedef struct
+{
+    double latitude;
+    double longitude;
+    double altitude;
+    double horizontalAccuracy;
+    double verticalAccuracy;
+    bool hasAltitude;
+    bool hasHorizontalAccuracy;
+    bool hasVerticalAccuracy;
+} easyar_LocationResult;
+
+/// <summary>
+/// record
+/// Proximity location reading.
+///
+/// The unit of x, y, z is meter. Origin is at map block origin. y is up.
+/// The unit of accuracy is meter.
+/// The unit of timestamp and validTime is second.
+/// is2d is whether y is disabled.
+/// </summary>
+typedef struct
+{
+    float x;
+    float y;
+    float z;
+    float accuracy;
+    double timestamp;
+    bool is2d;
+    double validTime;
+} easyar_ProximityLocationResult;
+
+/// <summary>
+/// record
 /// 3 dimensional vector of double.
 /// </summary>
 typedef struct
@@ -467,25 +617,6 @@ typedef struct
 typedef struct { char _placeHolder_; } easyar_SceneMesh;
 
 /// <summary>
-/// record
-/// Accelerometer reading.
-///
-/// The positive direction of x-axis is from the device center to its right side of the screen.
-/// The positive direction of y-axis is from the device center to its top side of the screen.
-/// The positive direction of z-axis is from the device center perpendicular to the screen outward.
-///
-/// The unit of x, y, z is m/s^2.
-/// The unit of timestamp is second.
-/// </summary>
-typedef struct
-{
-    float x;
-    float y;
-    float z;
-    double timestamp;
-} easyar_AccelerometerResult;
-
-/// <summary>
 /// class
 /// Accelerometer calls the accelerometer provided by the operating system, and outputs `AccelerometerResult`_ .
 /// When it is not needed anymore, call close function to close it. It shall not be used after calling close.
@@ -511,8 +642,8 @@ typedef enum
 /// Loading of libarcore_sdk_c.so with java.lang.System.loadLibrary is required.
 /// After creation, start/stop can be invoked to start or stop video stream capture.
 /// When the component is not needed anymore, call close function to close it. It shall not be used after calling close.
-/// ARCoreCameraDevice outputs `InputFrame`_ from inputFrameSource. inputFrameSource shall be connected to `InputFrameSink`_ for use. Refer to `Overview &lt;Overview.html&gt;`__ .
-/// bufferCapacity is the capacity of `InputFrame`_ buffer. If the count of `InputFrame`_ which has been output from the device and have not been released is more than this number, the device will not output new `InputFrame`_ , until previous `InputFrame`_ have been released. This may cause screen stuck. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// ARCoreCameraDevice outputs `InputFrame`_ from inputFrameSource. inputFrameSource shall be connected to `InputFrameSink`_ for use. Refer to :doc:`Overview &lt;Overview&gt;` .
+/// bufferCapacity is the capacity of `InputFrame`_ buffer. If the count of `InputFrame`_ which has been output from the device and have not been released is more than this number, the device will not output new `InputFrame`_ , until previous `InputFrame`_ have been released. This may cause screen stuck. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// Caution: Currently, ARCore(v1.13.0) has memory leaks on creating and destroying sessions. Repeated creations and destructions will cause an increasing and non-reclaimable memory footprint.
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_ARCoreCameraDevice;
@@ -534,8 +665,8 @@ typedef enum
 /// ARKitCameraDevice implements a camera device based on ARKit, which outputs `InputFrame`_ (including image, camera parameters, timestamp, 6DOF location, and tracking status).
 /// After creation, start/stop can be invoked to start or stop data collection.
 /// When the component is not needed anymore, call close function to close it. It shall not be used after calling close.
-/// ARKitCameraDevice outputs `InputFrame`_ from inputFrameSource. inputFrameSource shall be connected to `InputFrameSink`_ for use. Refer to `Overview &lt;Overview.html&gt;`__ .
-/// bufferCapacity is the capacity of `InputFrame`_ buffer. If the count of `InputFrame`_ which has been output from the device and have not been released is more than this number, the device will not output new `InputFrame`_ , until previous `InputFrame`_ have been released. This may cause screen stuck. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// ARKitCameraDevice outputs `InputFrame`_ from inputFrameSource. inputFrameSource shall be connected to `InputFrameSink`_ for use. Refer to :doc:`Overview &lt;Overview&gt;` .
+/// bufferCapacity is the capacity of `InputFrame`_ buffer. If the count of `InputFrame`_ which has been output from the device and have not been released is more than this number, the device will not output new `InputFrame`_ , until previous `InputFrame`_ have been released. This may cause screen stuck. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_ARKitCameraDevice;
 
@@ -616,8 +747,8 @@ typedef enum
 /// CameraDevice implements a camera device, which outputs `InputFrame`_ (including image, camera paramters, and timestamp). It is available on Windows, Mac, Android and iOS.
 /// After open, start/stop can be invoked to start or stop data collection. start/stop will not change previous set camera parameters.
 /// When the component is not needed anymore, call close function to close it. It shall not be used after calling close.
-/// CameraDevice outputs `InputFrame`_ from inputFrameSource. inputFrameSource shall be connected to `InputFrameSink`_ for use. Refer to `Overview &lt;Overview.html&gt;`__ .
-/// bufferCapacity is the capacity of `InputFrame`_ buffer. If the count of `InputFrame`_ which has been output from the device and have not been released is more than this number, the device will not output new `InputFrame`_ , until previous `InputFrame`_ have been released. This may cause screen stuck. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// CameraDevice outputs `InputFrame`_ from inputFrameSource. inputFrameSource shall be connected to `InputFrameSink`_ for use. Refer to :doc:`Overview &lt;Overview&gt;` .
+/// bufferCapacity is the capacity of `InputFrame`_ buffer. If the count of `InputFrame`_ which has been output from the device and have not been released is more than this number, the device will not output new `InputFrame`_ , until previous `InputFrame`_ have been released. This may cause screen stuck. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// On Android, it is required to add android.permission.CAMERA to AndroidManifest.xml for use.
 /// On iOS, it is required to add NSCameraUsageDescription to Info.plist for use.
 /// </summary>
@@ -634,7 +765,7 @@ typedef enum
     /// </summary>
     easyar_CameraDevicePreference_PreferSurfaceTracking = 1,
     /// <summary>
-    /// Optimized for Motion Tracking .
+    /// Optimized for Motion Tracking . But to use Motion Tracking, it is preferred to use `MotionTrackerCameraDevice`_ .
     /// </summary>
     easyar_CameraDevicePreference_PreferMotionTracking = 2,
 } easyar_CameraDevicePreference;
@@ -675,10 +806,10 @@ typedef struct { char _placeHolder_; } easyar_SurfaceTrackerResult;
 /// <summary>
 /// class
 /// SurfaceTracker implements tracking with environmental surfaces.
-/// SurfaceTracker occupies one buffer of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// SurfaceTracker occupies one buffer of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// After creation, you can call start/stop to enable/disable the track process. start and stop are very lightweight calls.
 /// When the component is not needed anymore, call close function to close it. It shall not be used after calling close.
-/// SurfaceTracker inputs `InputFrame`_ from inputFrameSink. `InputFrameSource`_ shall be connected to inputFrameSink for use. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// SurfaceTracker inputs `InputFrame`_ from inputFrameSink. `InputFrameSource`_ shall be connected to inputFrameSink for use. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_SurfaceTracker;
 
@@ -749,9 +880,13 @@ typedef enum
     /// </summary>
     easyar_MotionTrackerCameraDeviceTrackingMode_SLAM = 1,
     /// <summary>
-    /// Anchor is SLAM(Simultaneous tracking and mapping) with real time pose correction. CPU and memory usage are highest。Anchor supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
+    /// Anchor is SLAM(Simultaneous tracking and mapping) with real time pose correction. CPU and memory usage are highest. Anchor supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
     /// </summary>
     easyar_MotionTrackerCameraDeviceTrackingMode_Anchor = 2,
+    /// <summary>
+    /// LargeScale is SLAM(Simultaneous tracking and mapping) with real time pose correction in large scenes.Tracking is more stable at a large depth of field. LargeScale supports relocation, plane detection, hitTestAgainstPointCloud and pose correction. Anchor is automatically saved when hitTestAgainstPointCloud is called.
+    /// </summary>
+    easyar_MotionTrackerCameraDeviceTrackingMode_LargeScale = 3,
 } easyar_MotionTrackerCameraDeviceTrackingMode;
 
 /// <summary>
@@ -759,14 +894,14 @@ typedef enum
 /// MotionTrackerCameraDevice implements a camera device with metric-scale six degree-of-freedom motion tracking, which outputs `InputFrame`_  (including image, camera parameters, timestamp, 6DOF pose and tracking status).
 /// After creation, start/stop can be invoked to start or stop data flow.
 /// When the component is not needed anymore, call close function to close it. It shall not be used after calling close.
-/// MotionTrackerCameraDevice outputs `InputFrame`_ from inputFrameSource. inputFrameSource shall be connected to `InputFrameSink`_ for further use. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// MotionTrackerCameraDevice outputs `InputFrame`_ from inputFrameSource. inputFrameSource shall be connected to `InputFrameSink`_ for further use. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_MotionTrackerCameraDevice;
 
 /// <summary>
 /// class
 /// Input frame recorder.
-/// There is an input frame input port and an input frame output port. It can be used to record input frames into an EIF file. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// There is an input frame input port and an input frame output port. It can be used to record input frames into an EIF file. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// All members of this class is thread-safe.
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_InputFrameRecorder;
@@ -774,7 +909,7 @@ typedef struct { char _placeHolder_; } easyar_InputFrameRecorder;
 /// <summary>
 /// class
 /// Input frame player.
-/// There is an input frame output port. It can be used to get input frame from an EIF file. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// There is an input frame output port. It can be used to get input frame from an EIF file. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// All members of this class is thread-safe.
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_InputFramePlayer;
@@ -878,10 +1013,10 @@ typedef struct { char _placeHolder_; } easyar_ImageTrackerResult;
 /// <summary>
 /// class
 /// ImageTracker implements image target detection and tracking.
-/// ImageTracker occupies (1 + SimultaneousNum) buffers of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// ImageTracker occupies (1 + SimultaneousNum) buffers of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// After creation, you can call start/stop to enable/disable the track process. start and stop are very lightweight calls.
 /// When the component is not needed anymore, call close function to close it. It shall not be used after calling close.
-/// ImageTracker inputs `FeedbackFrame`_ from feedbackFrameSink. `FeedbackFrameSource`_ shall be connected to feedbackFrameSink for use. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// ImageTracker inputs `FeedbackFrame`_ from feedbackFrameSink. `FeedbackFrameSource`_ shall be connected to feedbackFrameSink for use. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// Before a `Target`_ can be tracked by ImageTracker, you have to load it using loadTarget/unloadTarget. You can get load/unload results from callbacks passed into the interfaces.
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_ImageTracker;
@@ -1077,7 +1212,7 @@ typedef struct { char _placeHolder_; } easyar_SparseSpatialMapConfig;
 /// <summary>
 /// class
 /// Provides core components for SparseSpatialMap, can be used for sparse spatial map building as well as localization using existing map. Also provides utilities for point cloud and plane access.
-/// SparseSpatialMap occupies 2 buffers of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// SparseSpatialMap occupies 2 buffers of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_SparseSpatialMap;
 
@@ -1174,6 +1309,54 @@ typedef struct { char _placeHolder_; } easyar_SignalSource;
 
 /// <summary>
 /// class
+/// Accelerometer result input port.
+/// It is used to expose input port for a component.
+/// All members of this class is thread-safe.
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_AccelerometerResultSink;
+
+/// <summary>
+/// class
+/// Accelerometer result output port.
+/// It is used to expose output port for a component.
+/// All members of this class is thread-safe.
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_AccelerometerResultSource;
+
+/// <summary>
+/// class
+/// Location result input port.
+/// It is used to expose input port for a component.
+/// All members of this class is thread-safe.
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_LocationResultSink;
+
+/// <summary>
+/// class
+/// Location result output port.
+/// It is used to expose output port for a component.
+/// All members of this class is thread-safe.
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_LocationResultSource;
+
+/// <summary>
+/// class
+/// Proximity location result input port.
+/// It is used to expose input port for a component.
+/// All members of this class is thread-safe.
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_ProximityLocationResultSink;
+
+/// <summary>
+/// class
+/// Proximity location result output port.
+/// It is used to expose output port for a component.
+/// All members of this class is thread-safe.
+/// </summary>
+typedef struct { char _placeHolder_; } easyar_ProximityLocationResultSource;
+
+/// <summary>
+/// class
 /// Input frame input port.
 /// It is used to expose input port for a component.
 /// All members of this class is thread-safe.
@@ -1257,7 +1440,7 @@ typedef struct { char _placeHolder_; } easyar_FeedbackFrameFork;
 /// class
 /// Input frame throttler.
 /// There is a input frame input port and a input frame output port. It can be used to prevent incoming frames from entering algorithm components when they have not finished handling previous workload.
-/// InputFrameThrottler occupies one buffer of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// InputFrameThrottler occupies one buffer of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// All members of this class is thread-safe.
 /// It shall be noticed that connections and disconnections to signalInput shall not be performed during the flowing of data, or it may stuck in a state that no frame can be output. (It is recommended to complete dataflow connection before start a camera.)
 /// </summary>
@@ -1267,7 +1450,7 @@ typedef struct { char _placeHolder_; } easyar_InputFrameThrottler;
 /// class
 /// Output frame buffer.
 /// There is an output frame input port and output frame fetching function. It can be used to convert output frame fetching from asynchronous pattern to synchronous polling pattern, which fits frame by frame rendering.
-/// OutputFrameBuffer occupies one buffer of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// OutputFrameBuffer occupies one buffer of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// All members of this class is thread-safe.
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_OutputFrameBuffer;
@@ -1275,7 +1458,7 @@ typedef struct { char _placeHolder_; } easyar_OutputFrameBuffer;
 /// <summary>
 /// class
 /// Input frame to output frame adapter.
-/// There is an input frame input port and an output frame output port. It can be used to wrap an input frame into an output frame, which can be used for rendering without an algorithm component. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// There is an input frame input port and an output frame output port. It can be used to wrap an input frame into an output frame, which can be used for rendering without an algorithm component. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// All members of this class is thread-safe.
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_InputFrameToOutputFrameAdapter;
@@ -1285,7 +1468,7 @@ typedef struct { char _placeHolder_; } easyar_InputFrameToOutputFrameAdapter;
 /// Input frame to feedback frame adapter.
 /// There is an input frame input port, a historic output frame input port and a feedback frame output port. It can be used to combine an input frame and a historic output frame into a feedback frame, which is required by algorithm components such as `ImageTracker`_ .
 /// On every input of an input frame, a feedback frame is generated with a previously input historic feedback frame. If there is no previously input historic feedback frame, it is null in the feedback frame.
-/// InputFrameToFeedbackFrameAdapter occupies one buffer of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// InputFrameToFeedbackFrameAdapter occupies one buffer of camera. Use setBufferCapacity of camera to set an amount of buffers that is not less than the sum of amount of buffers occupied by all components. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// All members of this class is thread-safe.
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_InputFrameToFeedbackFrameAdapter;
@@ -1297,6 +1480,21 @@ typedef struct { char _placeHolder_; } easyar_InputFrameToFeedbackFrameAdapter;
 /// among which, camera parameters, timestamp, camera transform matrix and tracking status are all optional, but specific algorithms may have special requirements on the input.
 /// </summary>
 typedef struct { char _placeHolder_; } easyar_InputFrame;
+
+/// <summary>
+/// Source type of input frames
+/// </summary>
+typedef enum
+{
+    /// <summary>
+    /// general type, not optimized for a special system
+    /// </summary>
+    easyar_InputFrameSourceType_General = 0,
+    easyar_InputFrameSourceType_ARKit = 1,
+    easyar_InputFrameSourceType_ARCore = 2,
+    easyar_InputFrameSourceType_AREngine = 3,
+    easyar_InputFrameSourceType_MotionTracker = 4,
+} easyar_InputFrameSourceType;
 
 /// <summary>
 /// class
@@ -1372,21 +1570,13 @@ typedef struct { char _placeHolder_; } easyar_Target;
 typedef enum
 {
     /// <summary>
-    /// The status is unknown.
+    /// The target is not being tracking.
     /// </summary>
-    easyar_TargetStatus_Unknown = 0,
+    easyar_TargetStatus_NotTracking = 0,
     /// <summary>
-    /// The status is undefined.
+    /// The target is being tracking.
     /// </summary>
-    easyar_TargetStatus_Undefined = 1,
-    /// <summary>
-    /// The target is detected.
-    /// </summary>
-    easyar_TargetStatus_Detected = 2,
-    /// <summary>
-    /// The target is tracked.
-    /// </summary>
-    easyar_TargetStatus_Tracked = 3,
+    easyar_TargetStatus_Tracking = 1,
 } easyar_TargetStatus;
 
 /// <summary>
@@ -1425,8 +1615,6 @@ typedef struct { char _placeHolder_; } easyar_ListOfVec3F;
 
 typedef struct { char _placeHolder_; } easyar_ListOfTargetInstance;
 
-typedef struct { bool has_value; easyar_Target * value; } easyar_OptionalOfTarget;
-
 typedef struct { bool has_value; easyar_OutputFrame * value; } easyar_OptionalOfOutputFrame;
 
 typedef struct { bool has_value; easyar_FrameFilterResult * value; } easyar_OptionalOfFrameFilterResult;
@@ -1458,26 +1646,42 @@ typedef struct { bool has_value; easyar_String * value; } easyar_OptionalOfStrin
 typedef struct
 {
     void * _state;
-    void (* func)(void * _state, easyar_CalibrationDownloadStatus, easyar_OptionalOfString, /* OUT */ easyar_String * * _exception);
+    void (* func)(void * _state, easyar_ARCoreDeviceListDownloadStatus, easyar_OptionalOfString, /* OUT */ easyar_String * * _exception);
     void (* destroy)(void * _state);
-} easyar_FunctorOfVoidFromCalibrationDownloadStatusAndOptionalOfString;
-
-typedef struct { bool has_value; easyar_Matrix44F value; } easyar_OptionalOfMatrix44F;
-
-typedef struct { char _placeHolder_; } easyar_ListOfString;
-
-typedef struct { char _placeHolder_; } easyar_ListOfMatrix44F;
-
-typedef struct { bool has_value; easyar_Vec3D value; } easyar_OptionalOfVec3D;
-
-typedef struct { bool has_value; easyar_Vec3F value; } easyar_OptionalOfVec3F;
+} easyar_FunctorOfVoidFromARCoreDeviceListDownloadStatusAndOptionalOfString;
 
 typedef struct
 {
     void * _state;
-    void (* func)(void * _state, easyar_CloudLocalizeResult *, /* OUT */ easyar_String * * _exception);
+    void (* func)(void * _state, easyar_CalibrationDownloadStatus, easyar_OptionalOfString, /* OUT */ easyar_String * * _exception);
     void (* destroy)(void * _state);
-} easyar_FunctorOfVoidFromCloudLocalizeResult;
+} easyar_FunctorOfVoidFromCalibrationDownloadStatusAndOptionalOfString;
+
+typedef struct { char _placeHolder_; } easyar_ListOfCloudLocalizerBlockInstance;
+
+typedef struct { bool has_value; double value; } easyar_OptionalOfDouble;
+
+typedef struct
+{
+    void * _state;
+    void (* func)(void * _state, easyar_CloudLocalizerResult *, /* OUT */ easyar_String * * _exception);
+    void (* destroy)(void * _state);
+} easyar_FunctorOfVoidFromCloudLocalizerResult;
+
+typedef struct { char _placeHolder_; } easyar_ListOfMegaTrackerBlockInstance;
+
+typedef struct { bool has_value; easyar_AccelerometerResult value; } easyar_OptionalOfAccelerometerResult;
+
+typedef struct { bool has_value; easyar_LocationResult value; } easyar_OptionalOfLocationResult;
+
+typedef struct
+{
+    void * _state;
+    void (* func)(void * _state, easyar_MegaTrackerLocalizationResponse *, /* OUT */ easyar_String * * _exception);
+    void (* destroy)(void * _state);
+} easyar_FunctorOfVoidFromMegaTrackerLocalizationResponse;
+
+typedef struct { bool has_value; easyar_FunctorOfVoidFromMegaTrackerLocalizationResponse value; } easyar_OptionalOfFunctorOfVoidFromMegaTrackerLocalizationResponse;
 
 typedef struct { bool has_value; easyar_ImageTarget * value; } easyar_OptionalOfImageTarget;
 
@@ -1492,7 +1696,14 @@ typedef struct
 
 typedef struct { char _placeHolder_; } easyar_ListOfBlockInfo;
 
-typedef struct { bool has_value; easyar_AccelerometerResult value; } easyar_OptionalOfAccelerometerResult;
+typedef struct
+{
+    void * _state;
+    void (* func)(void * _state, easyar_AccelerometerResult, /* OUT */ easyar_String * * _exception);
+    void (* destroy)(void * _state);
+} easyar_FunctorOfVoidFromAccelerometerResult;
+
+typedef struct { bool has_value; easyar_FunctorOfVoidFromAccelerometerResult value; } easyar_OptionalOfFunctorOfVoidFromAccelerometerResult;
 
 typedef struct
 {
@@ -1537,6 +1748,8 @@ typedef struct
 
 typedef struct { bool has_value; easyar_FunctorOfVoidFromRecordStatusAndString value; } easyar_OptionalOfFunctorOfVoidFromRecordStatusAndString;
 
+typedef struct { bool has_value; easyar_Matrix44F value; } easyar_OptionalOfMatrix44F;
+
 typedef struct { char _placeHolder_; } easyar_ListOfPlaneData;
 
 typedef struct
@@ -1574,6 +1787,24 @@ typedef struct
 typedef struct { bool has_value; easyar_FunctorOfVoidFromVideoStatus value; } easyar_OptionalOfFunctorOfVoidFromVideoStatus;
 
 typedef struct { bool has_value; easyar_FunctorOfVoid value; } easyar_OptionalOfFunctorOfVoid;
+
+typedef struct
+{
+    void * _state;
+    void (* func)(void * _state, easyar_LocationResult, /* OUT */ easyar_String * * _exception);
+    void (* destroy)(void * _state);
+} easyar_FunctorOfVoidFromLocationResult;
+
+typedef struct { bool has_value; easyar_FunctorOfVoidFromLocationResult value; } easyar_OptionalOfFunctorOfVoidFromLocationResult;
+
+typedef struct
+{
+    void * _state;
+    void (* func)(void * _state, easyar_ProximityLocationResult, /* OUT */ easyar_String * * _exception);
+    void (* destroy)(void * _state);
+} easyar_FunctorOfVoidFromProximityLocationResult;
+
+typedef struct { bool has_value; easyar_FunctorOfVoidFromProximityLocationResult value; } easyar_OptionalOfFunctorOfVoidFromProximityLocationResult;
 
 typedef struct
 {

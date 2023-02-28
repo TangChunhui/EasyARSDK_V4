@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -34,7 +34,7 @@ easyar_Vec2F easyar_CameraParameters_principalPoint(const easyar_CameraParameter
 /// </summary>
 easyar_CameraDeviceType easyar_CameraParameters_cameraDeviceType(const easyar_CameraParameters * This);
 /// <summary>
-/// Camera rotation against device natural orientation.
+/// Angles rotation required to rotate clockwise and display camera image on device with natural orientation. The range is [0, 360).
 /// For Android phones and some Android tablets, this value is 90 degrees.
 /// For Android eye-wear and some Android tablets, this value is 0 degrees.
 /// For all current iOS devices, this value is 90 degrees.
@@ -68,11 +68,11 @@ int easyar_CameraParameters_imageOrientation(const easyar_CameraParameters * Thi
 /// </summary>
 bool easyar_CameraParameters_imageHorizontalFlip(const easyar_CameraParameters * This, bool manualHorizontalFlip);
 /// <summary>
-/// Calculates the perspective projection matrix needed by virtual object rendering. The projection transforms points from camera coordinate system to clip coordinate system ([-1, 1]^4). The form of perspective projection matrix is the same as OpenGL, that matrix multiply column vector of homogeneous coordinates of point on the right, ant not like Direct3D, that matrix multiply row vector of homogeneous coordinates of point on the left. But data arrangement is row-major, not like OpenGL&#39;s column-major. Clip coordinate system and normalized device coordinate system are defined as the same as OpenGL&#39;s default.
+/// Calculates the perspective projection matrix needed by virtual object rendering. The projection transforms points from camera coordinate system to clip coordinate system ([-1, 1]^4)  (including rotation around z-axis). The form of perspective projection matrix is the same as OpenGL, that matrix multiply column vector of homogeneous coordinates of point on the right, ant not like Direct3D, that matrix multiply row vector of homogeneous coordinates of point on the left. But data arrangement is row-major, not like OpenGL&#39;s column-major. Clip coordinate system and normalized device coordinate system are defined as the same as OpenGL&#39;s default.
 /// </summary>
 easyar_Matrix44F easyar_CameraParameters_projection(const easyar_CameraParameters * This, float nearPlane, float farPlane, float viewportAspectRatio, int screenRotation, bool combiningFlip, bool manualHorizontalFlip);
 /// <summary>
-/// Calculates the orthogonal projection matrix needed by camera background rendering. The projection transforms points from image quad coordinate system ([-1, 1]^2) to clip coordinate system ([-1, 1]^4), with the undefined two dimensions unchanged. The form of orthogonal projection matrix is the same as OpenGL, that matrix multiply column vector of homogeneous coordinates of point on the right, ant not like Direct3D, that matrix multiply row vector of homogeneous coordinates of point on the left. But data arrangement is row-major, not like OpenGL&#39;s column-major. Clip coordinate system and normalized device coordinate system are defined as the same as OpenGL&#39;s default.
+/// Calculates the orthogonal projection matrix needed by camera background rendering. The projection transforms points from image quad coordinate system ([-1, 1]^2) to clip coordinate system ([-1, 1]^4) (including rotation around z-axis), with the undefined two dimensions unchanged. The form of orthogonal projection matrix is the same as OpenGL, that matrix multiply column vector of homogeneous coordinates of point on the right, ant not like Direct3D, that matrix multiply row vector of homogeneous coordinates of point on the left. But data arrangement is row-major, not like OpenGL&#39;s column-major. Clip coordinate system and normalized device coordinate system are defined as the same as OpenGL&#39;s default.
 /// </summary>
 easyar_Matrix44F easyar_CameraParameters_imageProjection(const easyar_CameraParameters * This, float viewportAspectRatio, int screenRotation, bool combiningFlip, bool manualHorizontalFlip);
 /// <summary>

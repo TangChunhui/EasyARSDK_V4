@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -28,11 +28,11 @@
 /// </summary>
 - (int)getBufferSize;
 /// <summary>
-/// Input data to the cache, the data includes localTwc and mapTcw at the time timestamp. localTwc means camera pose at local coordinates, mapTcw means the camera pose at the localized map coordinates.
+/// Input data to the cache, the data includes localTwc and mapTcw at the time timestamp. localTwc means camera pose at local coordinates, mapTcw means the map pose at the camera coordinates.
 /// </summary>
 - (bool)insertData:(double)timestamp localTwc:(easyar_Matrix44F *)localTwc mapTcw:(easyar_Matrix44F *)mapTcw;
 /// <summary>
-/// Returns the camera pose in the localized map after insert motionTracking status and localTwc at the time timestamp. localTwc means camera pose at local coordinates.
+/// Returns the localized map pose in the camera coordinates after insert motionTracking status and localTwc at the time timestamp. localTwc means camera pose at local coordinates.
 /// </summary>
 - (easyar_Matrix44F *)getPoseInMap:(double)timestamp status:(easyar_MotionTrackingStatus)status localTwc:(easyar_Matrix44F *)localTwc;
 

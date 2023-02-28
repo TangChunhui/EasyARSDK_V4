@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -42,6 +42,10 @@ void easyar_CameraDevice_setBufferCapacity(easyar_CameraDevice * This, int capac
 /// `InputFrame`_ output port.
 /// </summary>
 void easyar_CameraDevice_inputFrameSource(easyar_CameraDevice * This, /* OUT */ easyar_InputFrameSource * * Return);
+/// <summary>
+/// Source type of input frames.
+/// </summary>
+easyar_InputFrameSourceType easyar_CameraDevice_inputFrameSourceType(easyar_CameraDevice * This);
 /// <summary>
 /// Sets callback on state change to notify state of camera disconnection or preemption. It is only available on Windows.
 /// </summary>

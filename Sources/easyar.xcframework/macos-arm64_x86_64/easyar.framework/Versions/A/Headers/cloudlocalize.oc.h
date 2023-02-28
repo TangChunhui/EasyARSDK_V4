@@ -1,92 +1,79 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
 //=============================================================================================================================
 
 #import "easyar/types.oc.h"
-#import "easyar/frame.oc.h"
 
-@interface easyar_CloudLocalizeResult : easyar_FrameFilterResult
+/// <summary>
+/// The block instance localized by MegaTracker.
+/// </summary>
+@interface easyar_CloudLocalizerBlockInstance : easyar_RefBase
 
 + (instancetype)new NS_UNAVAILABLE;
 - (instancetype)init NS_UNAVAILABLE;
 
 /// <summary>
-/// Returns localization status.
+/// The ID of the block.
 /// </summary>
-- (easyar_CloudLocalizeStatus)getLocalizeStatus;
+- (NSString *)blockId;
 /// <summary>
-/// Returns ID of the best correspond localized map.
+/// The name of the block.
 /// </summary>
-- (NSString *)getLocalizedMapID;
+- (NSString *)name;
 /// <summary>
-/// Returns the name of the best correspond localized map.
+/// The map pose in the camera coordinates.
 /// </summary>
-- (NSString *)getLocalizedMapName;
+- (easyar_Matrix44F *)pose;
+
+@end
+
+@interface easyar_CloudLocalizerResult : easyar_RefBase
+
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+
 /// <summary>
-/// Returns the camera pose at the best correspond localized map coordinates.
+/// Localization status.
 /// </summary>
-- (easyar_Matrix44F *)getPose;
+- (easyar_CloudLocalizerStatus)localizeStatus;
 /// <summary>
-/// Returns the transform from local coordinates (if exists) to the best correspond map coordinates.
+/// Current localized block instances.
 /// </summary>
-- (easyar_Matrix44F *)getDeltaT;
+- (NSArray<easyar_CloudLocalizerBlockInstance *> *)blockInstances;
 /// <summary>
-/// Returns ID of all localized maps.
+/// Extra informations of the localization.
 /// </summary>
-- (NSArray<NSString *> *)getAllLocalizedMapID;
+- (NSString *)extraInfo;
 /// <summary>
-/// Returns the camera pose at all localized map coordinates.
+/// Detailed exception message.
 /// </summary>
-- (NSArray<easyar_Matrix44F *> *)getAllPose;
+- (NSString *)exceptionInfo;
 /// <summary>
-/// Returns the transform from local coordinates (if exists) to all map coordinates.
+/// The duration in seconds for server response.
 /// </summary>
-- (NSArray<easyar_Matrix44F *> *)getAllDeltaT;
+- (NSNumber *)serverResponseDuration;
 /// <summary>
-/// Returns extra informations of the localization.
+/// The duration in seconds for server internal calculation.
 /// </summary>
-- (NSString *)getExtraInfo;
-/// <summary>
-/// Returns detailed exception message.
-/// </summary>
-- (NSString *)getExceptionInfo;
-/// <summary>
-/// Returns the block id of the best correspond localized map.
-/// </summary>
-- (NSString *)getLocalizedBlockId;
-/// <summary>
-/// Returns the block timestamp of the best correspond localized map.
-/// </summary>
-- (NSString *)getLocalizedBlockTimestamp;
-/// <summary>
-/// Returns the block location of the best correspond localized map.
-/// </summary>
-- (easyar_Vec3D *)getLocalizedBlockLocation;
-/// <summary>
-/// Returns the cluster id of the best correspond localized map.
-/// </summary>
-- (NSString *)getLocalizedClusterId;
-/// <summary>
-/// Returns the cluster location of the best correspond localized map.
-/// </summary>
-- (easyar_Vec3D *)getLocalizedClusterLocation;
-/// <summary>
-/// Returns the camera pose in the cluster which the best correspond localized map belongs to.
-/// </summary>
-- (easyar_Matrix44F *)getPoseInCluster;
-/// <summary>
-/// Returns the transform from local coordinates (if exists) to the best correspond map coordinates.
-/// </summary>
-- (easyar_Matrix44F *)getDeltaTForCluster;
-/// <summary>
-/// Returns the location of device.
-/// </summary>
-- (easyar_Vec3D *)getDeviceLocation;
+- (NSNumber *)serverCalculationDuration;
+
+@end
+
+@interface easyar_DeviceAuxiliaryInfo : easyar_RefBase
+
++ (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+
++ (easyar_DeviceAuxiliaryInfo *)create;
+- (void)setAcceleration:(easyar_AccelerometerResult *)acce;
+- (void)setGPSLocation:(easyar_LocationResult *)gps;
+- (void)setProximityLocation:(easyar_ProximityLocationResult *)proximity;
+- (void)setECompass:(double)northHeading headingAccuracy:(double)headingAccuracy;
 
 @end
 
@@ -113,7 +100,7 @@
 /// acceleration is optional which is the readings from device accelerometer.
 /// location is optional which is the readings from device location manager.
 /// </summary>
-- (void)resolve:(easyar_InputFrame *)inputFrame message:(NSString *)message acceleration:(easyar_Vec3F *)acceleration location:(easyar_Vec3D *)location timeoutMilliseconds:(NSNumber *)timeoutMilliseconds callbackScheduler:(easyar_CallbackScheduler *)callbackScheduler callback:(void (^)(easyar_CloudLocalizeResult * result))callback;
+- (void)resolve:(easyar_InputFrame *)inputFrame message:(NSString *)message deviceAuxInfo:(easyar_DeviceAuxiliaryInfo *)deviceAuxInfo timeoutMilliseconds:(NSNumber *)timeoutMilliseconds callbackScheduler:(easyar_CallbackScheduler *)callbackScheduler callback:(void (^)(easyar_CloudLocalizerResult * result))callback;
 /// <summary>
 /// Stops the localization and closes connection. The component shall not be used after calling close.
 /// </summary>

@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -46,7 +46,7 @@ bool easyar_MotionTrackerCameraDevice_setFrameResolutionType(easyar_MotionTracke
 bool easyar_MotionTrackerCameraDevice_setTrackingMode(easyar_MotionTrackerCameraDevice * This, easyar_MotionTrackerCameraDeviceTrackingMode trackingMode);
 /// <summary>
 /// Set `InputFrame`_ buffer capacity.
-/// bufferCapacity is the capacity of `InputFrame`_ buffer. If the count of `InputFrame`_ which has been output from the device and have not been released is higher than this number, the device will not output new `InputFrame`_ until previous `InputFrame`_ has been released. This may cause screen stuck. Refer to `Overview &lt;Overview.html&gt;`__ .
+/// bufferCapacity is the capacity of `InputFrame`_ buffer. If the count of `InputFrame`_ which has been output from the device and have not been released is higher than this number, the device will not output new `InputFrame`_ until previous `InputFrame`_ has been released. This may cause screen stuck. Refer to :doc:`Overview &lt;Overview&gt;` .
 /// </summary>
 void easyar_MotionTrackerCameraDevice_setBufferCapacity(easyar_MotionTrackerCameraDevice * This, int capacity);
 /// <summary>
@@ -57,6 +57,10 @@ int easyar_MotionTrackerCameraDevice_bufferCapacity(const easyar_MotionTrackerCa
 /// `InputFrame`_ output port.
 /// </summary>
 void easyar_MotionTrackerCameraDevice_inputFrameSource(easyar_MotionTrackerCameraDevice * This, /* OUT */ easyar_InputFrameSource * * Return);
+/// <summary>
+/// Source type of input frames.
+/// </summary>
+easyar_InputFrameSourceType easyar_MotionTrackerCameraDevice_inputFrameSourceType(easyar_MotionTrackerCameraDevice * This);
 /// <summary>
 /// Start motion tracking or resume motion tracking after pause.
 /// Notice: Calling start after pausing will trigger device relocalization. Tracking will resume when the relocalization process succeeds.

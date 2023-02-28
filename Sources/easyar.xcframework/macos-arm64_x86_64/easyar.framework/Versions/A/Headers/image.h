@@ -1,7 +1,7 @@
 ﻿//=============================================================================================================================
 //
-// EasyAR Sense 4.5.0.9653-15c04a97e
-// Copyright (c) 2015-2022 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
+// EasyAR Sense 4.6.0.10354-b8234d930
+// Copyright (c) 2015-2023 VisionStar Information Technology (Shanghai) Co., Ltd. All Rights Reserved.
 // EasyAR is the registered trademark or trademark of VisionStar Information Technology (Shanghai) Co., Ltd in China
 // and other countries for the augmented reality technology developed by VisionStar Information Technology (Shanghai) Co., Ltd.
 //
@@ -26,11 +26,11 @@ void easyar_Image_buffer(const easyar_Image * This, /* OUT */ easyar_Buffer * * 
 /// </summary>
 easyar_PixelFormat easyar_Image_format(const easyar_Image * This);
 /// <summary>
-/// Returns image width.
+/// Returns image width. There is a padding of (pixelWidth - width) pixels at the right side of the image.
 /// </summary>
 int easyar_Image_width(const easyar_Image * This);
 /// <summary>
-/// Returns image height.
+/// Returns image height. There is a padding of (pixelHeight - height) pixels at the bottom of the image.
 /// </summary>
 int easyar_Image_height(const easyar_Image * This);
 /// <summary>
